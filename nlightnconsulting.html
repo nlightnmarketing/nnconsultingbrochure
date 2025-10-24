@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLightN Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a1a;
+            --paper: #f8f5ed;
+            --accent: #d4380d;
+            --muted: #8c8c8c;
+            --highlight: #fff8e1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 1000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+        }
+        
+        .masthead {
+            margin-bottom: 100px;
+            opacity: 0;
+            animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            color: var(--ink);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: var(--accent);
+            animation: expandLine 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+        }
+        
+        @keyframes expandLine {
+            to {
+                width: 100%;
+            }
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--muted);
+            max-width: 600px;
+            margin-top: 30px;
+        }
+        
+        .mission-block {
+            background: var(--highlight);
+            padding: 50px;
+            margin: 80px 0;
+            border-left: 6px solid var(--accent);
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+        }
+        
+        .section-marker {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin: 100px 0;
+            opacity: 0;
+            animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.5s; }
+        .section:nth-child(5) { animation-delay: 0.6s; }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            letter-spacing: -0.02em;
+        }
+        
+        .service {
+            margin-bottom: 60px;
+            padding-left: 40px;
+            border-left: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .service:hover {
+            border-left-color: var(--accent);
+            transform: translateX(10px);
+        }
+        
+        .service-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--ink);
+        }
+        
+        .service-title .icon {
+            display: inline-block;
+            margin-right: 15px;
+            font-style: normal;
+        }
+        
+        .service-desc {
+            font-size: 1.15rem;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+        
+        .keyword {
+            background: linear-gradient(120deg, var(--highlight) 0%, var(--highlight) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 85%;
+            font-weight: 600;
+            padding: 0 4px;
+        }
+        
+        .projects-list {
+            columns: 2;
+            column-gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .project {
+            break-inside: avoid;
+            margin-bottom: 30px;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        .project::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .member {
+            padding: 35px;
+            background: white;
+            border: 1px solid #e8e4d9;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .member:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--ink);
+        }
+        
+        .member-bio {
+            font-size: 1rem;
+            color: var(--ink);
+            line-height: 1.7;
+        }
+        
+        .closing {
+            margin-top: 120px;
+            padding: 70px;
+            background: var(--ink);
+            color: var(--paper);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .closing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            to {
+                left: 100%;
+            }
+        }
+        
+        .closing-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+        
+        .closing-text {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 50px 25px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-list {
+                columns: 1;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .closing {
+                padding: 50px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    
+    <div class="container">
+        <header class="masthead">
+            <h1 class="logo">NLightN</h1>
+            <p class="tagline">Empowering businesses through generative AI</p>
+        </header>
+        
+        <div class="mission-block">
+            With extensive experience in Generative AI, NLightN's mission is to enable businesses to effectively leverage the power of GenAI and stay ahead in a rapidly evolving technological landscape that has the potential to transform the way we do business.
+        </div>
+        
+        <section class="section">
+            <div class="section-marker">What We Offer</div>
+            <h2 class="section-title">Services</h2>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">⚡</span>FRIDAYi Agent Builder</h3>
+                <p class="service-desc">We help businesses develop and deploy intelligent agents designed to accelerate growth. Our agent solutions include Sales Agents to improve conversion rates, Analytics agents for real-time business insights, Document agents for content creation at scale, Marketing agents for organic content generation, and custom solutions tailored to your needs.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">◆</span>NLightN Consulting</h3>
+                <p class="service-desc">With deep expertise in Generative AI, we help organizations accelerate AI adoption through a strategic approach. Our services include <span class="keyword">AI maturity assessment</span>, strategy and roadmap development, and data readiness evaluation. We assist in establishing <span class="keyword">AI Centers of Excellence</span>, building evaluation frameworks with <span class="keyword">ROI metrics</span>, and identifying high-impact <span class="keyword">AI moonshot projects</span> aligned with your business goals. We also provide guidance on <span class="keyword">governance</span>, model selection, and responsible implementation practices.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">✦</span>FRIDAYi Marketing Services</h3>
+                <p class="service-desc">Through our unique human + AI combination, we help businesses leverage GenAI in marketing and organic digital growth. From website development to content creation and marketing services, we enable businesses to scale their content marketing activities effectively.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">●</span>NLightN AI Training</h3>
+                <p class="service-desc">Our AI training programme helps businesses learn practical AI applications to drive immediate value. Workshops are designed for owners, executives, and staff of small and medium businesses seeking hands-on training with current AI tools. Available as live online sessions or in-person formats.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-marker">Portfolio</div>
+            <h2 class="section-title">Proven Track Record</h2>
+            
+            <div class="projects-list">
+                <div class="project">AI-based natural language application for healthcare insights across multiple high-volume programs</div>
+                <div class="project">HR policy assistant serving 2,500 employees across India via Peoplesoft and MS Teams</div>
+                <div class="project">Fractional CTO services for a major IT foundation covering consulting, DevOps, and delivery</div>
+                <div class="project">Online competition portal for environmental education with 1,500 schools and 10,000 participants</div>
+                <div class="project">AI-powered analytics platform for India's largest Not-for-Profit with web and WhatsApp interfaces</div>
+                <div class="project">AI-based spoken English app for 6,000 scholarship students with Moodle integration</div>
+                <div class="project">Large-volume grant document processing for India's biggest grant makers</div>
+                <div class="project">WhatsApp-based Learning & Development application with instructional assessment</div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-marker">Leadership</div>
+            <h2 class="section-title">Our Team</h2>
+            
+            <div class="team-grid">
+                <div class="member">
+                    <h4 class="member-name">Sreekanth Sreedharan</h4>
+                    <p class="member-bio">15+ years in program management and AI applications. MBA from IIM Ahmedabad, B.Tech. from College of Engineering, Thiruvananthapuram. Co-founded Iksula with 6000+ hours hands-on coding GenAI applications. Former roles at TCS, eBay, and Azim Premji Foundation.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Sreenath Manickom</h4>
+                    <p class="member-bio">Deep expertise in GenAI applications QA, user experience, and client requirements. 15+ years at Volvo spanning India and US operations. Specializes in GenAI application development, quality assurance, and operational excellence.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Sanjay Varma</h4>
+                    <p class="member-bio">20+ years in digital marketing and eCommerce. MBA from IIM Ahmedabad. Former roles in Digital Marketing and Fundraising at eBay, AOL, and UNICEF. Visiting faculty at MICA and other business schools.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Shyam Kumar</h4>
+                    <p class="member-bio">27+ years in IT with global leadership experience. Former CTO at Axidio, led supply chain platform development boosting performance by 30%. Founded two companies with global presence. Expert in AI-driven platforms and digital transformation.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Stallon Selvan</h4>
+                    <p class="member-bio">15+ years building and scaling products. Product Architect with expertise in product development and engineering architecture. Founded multiple B2B SaaS products including JetPricer. Consulted enterprises ($100M+ revenue) and scaleups.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="closing">
+            <h3 class="closing-title">Ready to transform your business with AI?</h3>
+            <p class="closing-text">If you want to explore how AI can transform your business but aren't sure where to begin — let's talk.</p>
+        </div>
+    </div>
+</body>
+</html>
