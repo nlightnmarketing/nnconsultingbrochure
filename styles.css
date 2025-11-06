@@ -251,7 +251,8 @@ body {
 
 .bullet-list li {
     position: relative;
-    margin-bottom: 18px;
+    padding-top: 7px;
+    margin-bottom: 5px;
     font-size: 1.15rem;
     line-height: 1.8;
 }
@@ -405,6 +406,14 @@ body {
         padding-left: 22px;
     }
 
+    .bullet-list li {
+        position: relative;
+        padding-top: 8px;
+        margin-bottom: 5px;
+        font-size: 1.15rem;
+        line-height: 1.8;
+    }
+
     .bullet-list li::before {
         left: -20px;
     }
@@ -415,6 +424,9 @@ body {
 
     .closing {
         padding: 55px 28px;
+    }
+    .placeholder-frame {
+        max-height: 200px;
     }
 }
 
