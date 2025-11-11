@@ -18,7 +18,7 @@ body {
     font-family: 'Crimson Pro', serif;
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.7;
+    line-height: 1.4;
     overflow-x: hidden;
 }
 
@@ -90,7 +90,7 @@ body {
     font-weight: 300;
     color: var(--muted);
     max-width: 600px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .subtitle {
@@ -103,12 +103,12 @@ body {
 
 .mission-block {
     background: var(--highlight);
-    padding: 50px;
-    margin: 30px 0;
+    padding: 20px;
+    margin-top: -10px;
     border-left: 6px solid var(--accent);
     font-size: 1.3rem;
     font-weight: 300;
-    line-height: 1.8;
+    line-height: 1.4;
     opacity: 0;
     animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 }
@@ -124,7 +124,7 @@ body {
 }
 
 .section {
-    margin: 80px 0;
+    margin: 50px 0;
     opacity: 0;
     animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -134,16 +134,16 @@ body {
 .section:nth-child(5) { animation-delay: 0.6s; }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     letter-spacing: -0.02em;
 }
 
 .section-intro {
     font-size: 1.2rem;
     color: var(--ink);
-    line-height: 1.9;
+    line-height: 1.4;
     max-width: 850px;
 }
 
@@ -174,7 +174,7 @@ body {
 .service-desc {
     font-size: 1.15rem;
     color: var(--ink);
-    line-height: 1.8;
+    line-height: 1.4;
 }
 
 .keyword {
@@ -198,7 +198,7 @@ body {
     padding-left: 35px;
     position: relative;
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 .project::before {
@@ -239,7 +239,7 @@ body {
 .member-bio {
     font-size: 1rem;
     color: var(--ink);
-    line-height: 1.7;
+    line-height: 1.4;
 }
 
 .bullet-list {
@@ -250,10 +250,10 @@ body {
 
 .bullet-list li {
     position: relative;
-    padding-top: 7px;
-    margin-bottom: 5px;
+    padding-top: 4px;
+    margin-bottom: 2px;
     font-size: 1.15rem;
-    line-height: 1.8;
+    line-height: 1.4;
 }
 
 .bullet-list li::before {
@@ -310,7 +310,7 @@ body {
 }
 
 .closing {
-    margin-top: 120px;
+    margin-top: 80px;
     padding: 70px;
     background: var(--ink);
     color: var(--paper);
@@ -353,6 +353,7 @@ body {
     margin: 35px auto 0;
     max-width: 420px;
     height: 240px;
+    max-height: 300px;
     border: 2px dashed rgba(255, 255, 255, 0.4);
     border-radius: 18px;
     display: flex;
@@ -438,10 +439,10 @@ body {
 
     .bullet-list li {
         position: relative;
-        padding-top: 8px;
-        margin-bottom: 5px;
+        padding-top: 4px;
+        margin-bottom: 2px;
         font-size: 1.15rem;
-        line-height: 1.8;
+        line-height: 1.4;
     }
 
     .bullet-list li::before {
