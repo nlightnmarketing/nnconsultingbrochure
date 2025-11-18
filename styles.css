@@ -88,7 +88,7 @@ body {
 .tagline {
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--muted);
+    color: #664022;
     max-width: 600px;
     margin-top: 10px;
 }
@@ -129,10 +129,11 @@ body {
 }
 
 .mission-block {
-    background: var(--highlight);
+    background: #664022;
+    color: #fff2d0;
     padding: 20px;
     margin-top: -10px;
-    border-left: 6px solid var(--accent);
+    border-left: 6px solid #b69644;
     font-size: 1.3rem;
     font-weight: 300;
     line-height: 1.4;
