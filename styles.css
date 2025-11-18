@@ -146,9 +146,28 @@ body {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #664022;
+    color: #fff2d0;
     margin-bottom: 15px;
     font-weight: 500;
+    background-color: #6f3305;
+    padding: 15px 40px 15px 20px;
+    border-left: 6px solid #b69644;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 50%, 100% 100%, 0 100%);
+}
+
+.section-marker::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 242, 208, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
+    z-index: 0;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 50%, 100% 100%, 0 100%);
 }
 
 .section {
