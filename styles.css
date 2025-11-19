@@ -358,13 +358,8 @@ body {
 
 .project-divider {
     width: 100%;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      rgba(0,0,0,0.05),
-      rgba(0,0,0,0.12) 60%,
-      rgba(0,0,0,0.04)
-    );
+    height: 2px;
+    background: linear-gradient(135deg, #371d04 0%, #b57f34 55%, #371d04 100%);
     margin: 40px 0;
     border: none;
   }
@@ -427,6 +422,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 50px;
+    margin-left: 3rem;
     position: relative;
     z-index: 1;
 }
