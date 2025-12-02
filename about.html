@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NLightN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        nav {
+            background: var(--ink);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--paper);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            color: var(--paper);
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'DM Mono', monospace;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent);
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #664022 0%, #8b5a3c 100%);
+            padding: 80px 40px 60px 40px;
+            margin: 0 -40px 50px -40px;
+            color: var(--paper);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    
+    <nav>
+        <div class="container">
+            <a href="index.html" class="nav-logo">NLightN</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="page-header">
+        <h1 class="page-title">About NLightN</h1>
+        <p class="page-subtitle">Pioneering Generative AI Solutions for Business Transformation</p>
+    </div>
+    
+    <div class="container">
+        <section class="section">
+            <div class="section-marker">Our Mission</div>
+            <h2 class="section-title">Empowering Businesses Through AI</h2>
+            
+            <div class="mission-block" style="margin-top: 30px;">
+                With extensive experience in Generative AI, NLightN's mission is to enable businesses to effectively leverage the power of GenAI and stay ahead in a rapidly evolving technological landscape that has the potential to transform the way we do business.
+            </div>
+            
+            <p style="font-size: 1.2rem; line-height: 1.75; margin-top: 40px;">
+                We believe that Generative AI represents a fundamental shift in how businesses operate, innovate, and compete. Our approach combines deep technical expertise with strategic business insight to deliver solutions that create measurable impact. We don't just implement technology—we partner with you to reimagine your business processes and unlock new opportunities.
+            </p>
+        </section>
+        
+        <section class="section">
+            <div class="section-marker">Our Expertise</div>
+            <h2 class="section-title">Why Choose NLightN?</h2>
+            
+            <div class="projects-list">
+                <div class="project"><strong>Deep GenAI Expertise:</strong> 6,000+ hours hands-on coding with GenAI applications across multiple industries and use cases.</div>
+                <div class="project"><strong>Proven Track Record:</strong> Delivered AI solutions serving 2,500+ users, processing thousands of documents, and driving measurable business impact.</div>
+                <div class="project"><strong>Strategic Approach:</strong> Combine technical expertise with business strategy—IIM Ahmedabad alumni with enterprise experience at TCS, eBay, Volvo.</div>
+                <div class="project"><strong>Human + AI Synergy:</strong> We don't just deploy technology—we ensure AI solutions integrate seamlessly with your people and processes.</div>
+                <div class="project"><strong>Industry-Specific Solutions:</strong> Tailored agents and workflows designed for the unique requirements of your industry.</div>
+                <div class="project"><strong>End-to-End Support:</strong> From strategy and assessment to implementation and training, we support you throughout your AI journey.</div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-marker">Our Approach</div>
+            <h2 class="section-title">How We Work</h2>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">1</span>Discover & Assess</h3>
+                <p class="service-desc">We begin by understanding your business challenges, goals, and current technological landscape. Our AI maturity assessment identifies opportunities where GenAI can deliver maximum impact.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">2</span>Strategy & Roadmap</h3>
+                <p class="service-desc">We develop a comprehensive AI strategy aligned with your business objectives, including a phased implementation roadmap, ROI projections, and governance framework.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">3</span>Build & Deploy</h3>
+                <p class="service-desc">Our experienced team designs, develops, and deploys custom AI solutions using cutting-edge technology stacks. We ensure seamless integration with your existing systems.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">4</span>Train & Optimize</h3>
+                <p class="service-desc">We provide comprehensive training for your team and continuously optimize solutions based on real-world performance and feedback, ensuring sustained value delivery.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-marker">Leadership</div>
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-intro">Our leadership team brings together decades of experience in AI, technology, business strategy, and digital transformation.</p>
+            
+            <div class="team-grid">
+                <div class="member">
+                    <h4 class="member-name">Sreekanth Sreedharan</h4>
+                    <p class="member-bio">15+ years in program management and AI applications. MBA from IIM Ahmedabad, B.Tech. from College of Engineering, Thiruvananthapuram. Co-founded Iksula with 6000+ hours hands-on coding GenAI applications. Former roles at TCS, eBay, and Azim Premji Foundation.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Sreenath Manickom</h4>
+                    <p class="member-bio">Deep expertise in GenAI applications QA, user experience, and client requirements. 15+ years at Volvo spanning India and US operations. Specializes in GenAI application development, quality assurance, and operational excellence.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Sanjay Varma</h4>
+                    <p class="member-bio">20+ years in digital marketing and eCommerce. MBA from IIM Ahmedabad. Former roles in Digital Marketing and Fundraising at eBay, AOL, and UNICEF. Visiting faculty at MICA and other business schools.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Shyam Kumar</h4>
+                    <p class="member-bio">27+ years in IT with global leadership experience. Former CTO at Axidio, led supply chain platform development boosting performance by 30%. Founded two companies with global presence. Expert in AI-driven platforms and digital transformation.</p>
+                </div>
+                
+                <div class="member">
+                    <h4 class="member-name">Stallon Selvan</h4>
+                    <p class="member-bio">15+ years building and scaling products. Product Architect with expertise in product development and engineering architecture. Founded multiple B2B SaaS products including JetPricer. Consulted enterprises ($100M+ revenue) and scaleups.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-marker">Our Values</div>
+            <h2 class="section-title">What Drives Us</h2>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">🎯</span>Client Success First</h3>
+                <p class="service-desc">Your success is our success. We measure our impact by the tangible value we deliver to your business.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">🔬</span>Innovation & Excellence</h3>
+                <p class="service-desc">We stay at the forefront of AI technology, constantly learning and adapting to bring you the best solutions.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">🤝</span>Partnership & Collaboration</h3>
+                <p class="service-desc">We work alongside your team as partners, fostering knowledge transfer and building internal AI capabilities.</p>
+            </div>
+            
+            <div class="service">
+                <h3 class="service-title"><span class="icon">⚡</span>Responsible AI</h3>
+                <p class="service-desc">We prioritize ethical AI practices, data security, and responsible implementation in all our solutions.</p>
+            </div>
+        </section>
+        
+        <div class="closing">
+            <h3 class="closing-title">Let's Build the Future Together</h3>
+            <p class="closing-text">Ready to transform your business with Generative AI? We'd love to hear from you.</p>
+            <p style="margin-top: 30px; text-align: center;">
+                <a href="contact.html" style="display: inline-block; padding: 18px 40px; background: var(--paper); color: var(--ink); text-decoration: none; font-family: 'DM Mono', monospace; font-weight: 500; font-size: 1.1rem; border-radius: 6px; transition: transform 0.3s ease;">Contact Us</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

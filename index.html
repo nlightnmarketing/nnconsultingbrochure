@@ -3,26 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NLightN Services</title>
+    <title>NLightN - Generative AI Solutions for Business</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        nav {
+            background: var(--ink);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--paper);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            color: var(--paper);
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'DM Mono', monospace;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+        
+        .hero-banner {
+            background-image: url('assets/hero-bg-2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 40px 80px 40px;
+            margin: 0 -40px 50px -40px;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.6);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--paper);
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--paper);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--accent-gradient);
+            color: var(--ink);
+            text-decoration: none;
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-right: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(252, 185, 0, 0.4);
+        }
+        
+        .cta-button-secondary {
+            display: inline-block;
+            padding: 18px 40px;
+            background: transparent;
+            color: var(--paper);
+            text-decoration: none;
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border: 2px solid var(--paper);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button-secondary:hover {
+            background: var(--paper);
+            color: var(--ink);
+            transform: translateY(-3px);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e8e4d9;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--ink);
+        }
+        
+        .solutions-preview {
+            background: linear-gradient(135deg, #664022 0%, #8b5a3c 100%);
+            padding: 80px 40px;
+            margin: 80px -40px;
+            color: var(--paper);
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .solution-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 35px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .solution-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+        
+        .solution-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .solution-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .solution-desc {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-button, .cta-button-secondary {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="grain"></div>
     
-    <div class="container">
-        <header class="masthead">
-            <h1 class="logo">NLightN</h1>
-            <p class="tagline">Empowering businesses through generative AI</p>
-        </header>
-        
-        <div class="mission-block">
-            With extensive experience in Generative AI, NLightN's mission is to enable businesses to effectively leverage the power of GenAI and stay ahead in a rapidly evolving technological landscape that has the potential to transform the way we do business.
+    <nav>
+        <div class="container">
+            <a href="index.html" class="nav-logo">NLightN</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
+    </nav>
+    
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1 class="hero-title">Empowering Businesses<br>Through Generative AI</h1>
+            <p class="hero-subtitle">Transform your business with intelligent AI solutions tailored to your industry. From strategy to implementation, we help you leverage the full power of GenAI.</p>
+            <div>
+                <a href="contact.html" class="cta-button">Get Started</a>
+                <a href="solutions.html" class="cta-button-secondary">Explore Solutions</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="section">
+            <div class="section-marker">Why Choose NLightN</div>
+            <h2 class="section-title">Leading GenAI Expertise</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">6,000+</div>
+                    <div class="stat-label">Hours Hands-on GenAI Coding</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">Users Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Major Projects Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Industries Served</div>
+                </div>
+            </div>
+        </section>
         
         <section class="section">
             <div class="section-marker">What We Offer</div>
-            <h2 class="section-title">Services</h2>
+            <h2 class="section-title">Our Services</h2>
             
             <div class="service">
                 <h3 class="service-title"><span class="icon">⚡</span>FRIDAYi Agent Builder</h3>
@@ -44,62 +322,90 @@
                 <p class="service-desc">Our AI training programme helps businesses learn practical AI applications to drive immediate value. Workshops are designed for owners, executives, and staff of small and medium businesses seeking hands-on training with current AI tools. Available as live online sessions or in-person formats.</p>
             </div>
         </section>
-        
-        <section class="section">
-            <div class="section-marker">Portfolio</div>
-            <h2 class="section-title">Proven Track Record</h2>
+    </div>
+    
+    <div class="solutions-preview">
+        <div class="container">
+            <div class="section-marker" style="background-color: rgba(255, 255, 255, 0.2); color: var(--paper);">Industry Solutions</div>
+            <h2 class="section-title" style="color: var(--paper);">Tailored AI Solutions for Your Industry</h2>
+            <p style="font-size: 1.2rem; margin-top: 20px; opacity: 0.9; max-width: 800px;">We provide specialized GenAI solutions designed for the unique challenges and opportunities of each industry.</p>
             
-            <div class="projects-list">
+            <div class="solutions-grid">
+                <a href="brochure/law-firms.html" style="text-decoration: none; color: inherit;">
+                    <div class="solution-card">
+                        <div class="solution-icon">⚖️</div>
+                        <h3 class="solution-title">Legal Services</h3>
+                        <p class="solution-desc">AI-powered agents for legal research, contract review, and compliance monitoring.</p>
+                    </div>
+                </a>
+                
+                <a href="brochure/banking-finance.html" style="text-decoration: none; color: inherit;">
+                    <div class="solution-card">
+                        <div class="solution-icon">🏦</div>
+                        <h3 class="solution-title">Banking & Finance</h3>
+                        <p class="solution-desc">Intelligent solutions for retail banking, corporate lending, and treasury management.</p>
+                    </div>
+                </a>
+                
+                <a href="brochure/marketing-services.html" style="text-decoration: none; color: inherit;">
+                    <div class="solution-card">
+                        <div class="solution-icon">📱</div>
+                        <h3 class="solution-title">Marketing & Content</h3>
+                        <p class="solution-desc">AI-powered content creation, SEO optimization, and marketing automation.</p>
+                    </div>
+                </a>
+                
+                <a href="brochure/retail-chains.html" style="text-decoration: none; color: inherit;">
+                    <div class="solution-card">
+                        <div class="solution-icon">🏪</div>
+                        <h3 class="solution-title">Retail Chains</h3>
+                        <p class="solution-desc">AI agents for inventory intelligence, customer service, and demand forecasting.</p>
+                    </div>
+                </a>
+                
+                <a href="brochure/ecommerce.html" style="text-decoration: none; color: inherit;">
+                    <div class="solution-card">
+                        <div class="solution-icon">🛒</div>
+                        <h3 class="solution-title">Ecommerce</h3>
+                        <p class="solution-desc">Product content generation, personalization, and customer service automation.</p>
+                    </div>
+                </a>
+            </div>
+            
+            <p style="text-align: center; margin-top: 50px;">
+                <a href="solutions.html" class="cta-button">View All Solutions</a>
+            </p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="section">
+            <div class="section-marker">Track Record</div>
+            <h2 class="section-title">Proven Success Stories</h2>
+            <p class="section-intro">We've delivered transformative AI solutions across diverse sectors, from healthcare to education.</p>
+            
+            <div class="projects-list" style="margin-top: 40px;">
                 <div class="project">AI-based natural language application for healthcare insights across multiple high-volume programs</div>
                 <div class="project">HR policy assistant serving 2,500 employees across India via Peoplesoft and MS Teams</div>
                 <div class="project">Fractional CTO services for a major IT foundation covering consulting, DevOps, and delivery</div>
                 <div class="project">Online competition portal for environmental education with 1,500 schools and 10,000 participants</div>
                 <div class="project">AI-powered analytics platform for India's largest Not-for-Profit with web and WhatsApp interfaces</div>
                 <div class="project">AI-based spoken English app for 6,000 scholarship students with Moodle integration</div>
-                <div class="project">Large-volume grant document processing for India's biggest grant makers</div>
-                <div class="project">WhatsApp-based Learning & Development application with instructional assessment</div>
             </div>
-        </section>
-        
-        <section class="section">
-            <div class="section-marker">Leadership</div>
-            <h2 class="section-title">Our Team</h2>
             
-            <div class="team-grid">
-                <div class="member">
-                    <h4 class="member-name">Sreekanth Sreedharan</h4>
-                    <p class="member-bio">15+ years in program management and AI applications. MBA from IIM Ahmedabad, B.Tech. from College of Engineering, Thiruvananthapuram. Co-founded Iksula with 6000+ hours hands-on coding GenAI applications. Former roles at TCS, eBay, and Azim Premji Foundation.</p>
-                </div>
-                
-                <div class="member">
-                    <h4 class="member-name">Sreenath Manickom</h4>
-                    <p class="member-bio">Deep expertise in GenAI applications QA, user experience, and client requirements. 15+ years at Volvo spanning India and US operations. Specializes in GenAI application development, quality assurance, and operational excellence.</p>
-                </div>
-                
-                <div class="member">
-                    <h4 class="member-name">Sanjay Varma</h4>
-                    <p class="member-bio">20+ years in digital marketing and eCommerce. MBA from IIM Ahmedabad. Former roles in Digital Marketing and Fundraising at eBay, AOL, and UNICEF. Visiting faculty at MICA and other business schools.</p>
-                </div>
-                
-                <div class="member">
-                    <h4 class="member-name">Shyam Kumar</h4>
-                    <p class="member-bio">27+ years in IT with global leadership experience. Former CTO at Axidio, led supply chain platform development boosting performance by 30%. Founded two companies with global presence. Expert in AI-driven platforms and digital transformation.</p>
-                </div>
-                
-                <div class="member">
-                    <h4 class="member-name">Stallon Selvan</h4>
-                    <p class="member-bio">15+ years building and scaling products. Product Architect with expertise in product development and engineering architecture. Founded multiple B2B SaaS products including JetPricer. Consulted enterprises ($100M+ revenue) and scaleups.</p>
-                </div>
-            </div>
+            <p style="text-align: center; margin-top: 50px;">
+                <a href="portfolio.html" style="color: var(--ink); text-decoration: underline; font-family: 'DM Mono', monospace; font-size: 1rem; font-weight: 500;">View Complete Portfolio →</a>
+            </p>
         </section>
         
         <div class="closing">
-            <h3 class="closing-title">Ready to transform your business with AI?</h3>
-            <p class="closing-text">If you want to explore how AI can transform your business but aren't sure where to begin — let's talk.</p>
+            <h3 class="closing-title">Ready to Transform Your Business with AI?</h3>
+            <p class="closing-text">If you want to explore how AI can drive growth and efficiency in your business but aren't sure where to begin — let's talk.</p>
             <p style="margin-top: 30px; text-align: center;">
-                <a href="Past-Projects.html" style="color: white; text-decoration: underline; font-family: 'DM Mono', monospace; font-size: 0.95rem;">View Past Projects & Proven GenAI Impact →</a>
+                <a href="contact.html" class="cta-button">Contact Us Today</a>
             </p>
         </div>
     </div>
 </body>
 </html>
+
