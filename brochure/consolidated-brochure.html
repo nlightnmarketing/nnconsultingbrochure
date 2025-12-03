@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLightN Consulting - GenAI Solutions for Business Transformation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.7;
+        }
+        
+        .brochure-header {
+            background: linear-gradient(135deg, #664022 0%, #8b5a3c 100%);
+            padding: 30px 40px;
+            margin: -40px -40px 40px -40px;
+            text-align: center;
+            color: var(--paper);
+        }
+        .brochure-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.02em;
+        }
+        .brochure-header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin: 0;
+            opacity: 0.95;
+        }
+        @media print {
+            .brochure-header {
+                margin: 0 0 40px 0;
+            }
+        }
+        
+        .intro-section {
+            margin-bottom: 40px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--ink);
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 10px;
+        }
+        
+        .subsection-heading {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .benefit-item {
+            padding: 15px;
+            background: rgba(102, 64, 34, 0.05);
+            border-left: 3px solid var(--ink);
+            font-size: 0.95rem;
+        }
+        
+        .benefit-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .solution-item {
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid var(--accent);
+        }
+        
+        .solution-item strong {
+            font-weight: 600;
+            color: var(--ink);
+        }
+        
+        .capabilities-list {
+            margin: 15px 0 15px 20px;
+        }
+        
+        .capabilities-list li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .team-members {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        
+        .team-member {
+            margin-bottom: 12px;
+        }
+        
+        .contact-section {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #664022 0%, #8b5a3c 100%);
+            color: var(--paper);
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .contact-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-section a {
+            color: var(--paper);
+            text-decoration: underline;
+            font-family: 'DM Mono', monospace;
+        }
+        
+        @media print {
+            body {
+                padding: 20px;
+            }
+            .contact-section {
+                break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    
+    <header class="brochure-header">
+        <h1>NLightN Consulting</h1>
+        <p>Empowering Businesses using AI</p>
+    </header>
+    
+    <!-- INTRO PARAGRAPH -->
+    <div class="intro-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+        <ul style="margin:0; padding-left:1.25em;">
+            <li>6,000+ hours of hands-on GenAI development experience</li>
+            <li>Pioneering intelligent AI solutions for business transformation</li>
+            <li>Led by IIM Ahmedabad alumni</li>
+            <li>Enterprise experience at TCS, eBay, and Volvo</li>
+            <li>Deep technical expertise blended with strategic business insight</li>
+        </ul>
+        <ul style="margin:0; padding-left:1.25em;">
+            <li>Custom GenAI agents and workflow automation for measurable impact</li>
+            <li>AI solutions serving 2,500+ users and processing thousands of documents</li>
+            <li>Real-world results: from legal research automation to optimized retail inventory and enhanced customer experiences</li>
+        </ul>
+    </div>
+    
+    <!-- WHY AI SECTION -->
+    <h2 class="section-heading">Why Generative AI?</h2>
+    
+    <p>Generative AI represents a fundamental shift in how businesses operate, innovate, and compete:</p>
+    
+    <div class="benefits-grid">
+        <div class="benefit-item">
+            <strong>Efficiency & Cost Savings</strong>
+            Reduce research and processing time by up to 60%, automate repetitive tasks, and scale operations without proportional staff increases.
+        </div>
+        
+        <div class="benefit-item">
+            <strong>Enhanced Customer Experience</strong>
+            Deliver 24/7 intelligent support, personalized recommendations, and instant access to information that understands context and customer intent.
+        </div>
+        
+        <div class="benefit-item">
+            <strong>Revenue Growth</strong>
+            Increase conversion rates by up to 35% through intelligent personalization, data-driven insights, and faster response to market opportunities.
+        </div>
+        
+        <div class="benefit-item">
+            <strong>Risk Mitigation & Compliance</strong>
+            Ensure regulatory compliance, detect fraud patterns in real-time, and uncover insights from vast data in seconds with AI-powered monitoring.
+        </div>
+        
+        <div class="benefit-item">
+            <strong>Content at Scale</strong>
+            Generate high-quality content, documentation, and communications at unprecedented speed—producing weeks of work in hours while maintaining consistency.
+        </div>
+        
+        <div class="benefit-item">
+            <strong>Competitive Advantage</strong>
+            Stay ahead with faster, data-driven decision-making, strategic insights from market trends, and the ability to deliver superior service in a digital-first era.
+        </div>
+    </div>
+    
+    <!-- SOLUTIONS SECTION -->
+    <h2 class="section-heading">Industry Solutions</h2>
+    
+    <p>NLightN provides AI Agent powered services for the following industries:</p>
+    
+    <h3 class="subsection-heading">Law Firms & Legal Services</h3>
+    <div class="solution-item">
+        <strong>Legal Research Agent:</strong> Scans case law, statutes, and precedents for precise, cited insights—cutting research from days to minutes.
+    </div>
+    <div class="solution-item">
+        <strong>Contract Review Agent:</strong> Analyzes agreements for risks, clauses, and negotiations with explainable AI recommendations.
+    </div>
+    <div class="solution-item">
+        <strong>Document Drafting & Compliance Monitoring:</strong> Generates compliant briefs and tracks regulatory changes in real-time.
+    </div>
+    
+    <h3 class="subsection-heading">Banking & Finance</h3>
+    <div class="solution-item">
+        <strong>Corporate Lending & Trade Finance Agents:</strong> Automates financial statement analysis, credit memos, and trade documentation—reducing processing time by 60%.
+    </div>
+    <div class="solution-item">
+        <strong>Risk Assessment & Fraud Detection:</strong> Analyzes credit histories, transaction patterns, and market data for intelligent risk scoring and portfolio monitoring.
+    </div>
+    <div class="solution-item">
+        <strong>Customer Service & Wealth Management:</strong> Delivers personalized financial guidance and investment recommendations across retail and HNI segments.
+    </div>
+    
+    <h3 class="subsection-heading">Retail Chains</h3>
+    <div class="solution-item">
+        <strong>Store Assistant Agent:</strong> Provides staff with instant product information, inventory visibility, and customer purchase history for personalized service.
+    </div>
+    <div class="solution-item">
+        <strong>Inventory Intelligence Agent:</strong> Monitors stock levels, generates automated replenishment recommendations, and optimizes allocation—reducing stockouts by 40%.
+    </div>
+    <div class="solution-item">
+        <strong>Demand Forecasting & Training Agents:</strong> Predicts demand patterns and provides mobile-accessible employee training and knowledge support.
+    </div>
+    
+    <h3 class="subsection-heading">Ecommerce</h3>
+    <div class="solution-item">
+        <strong>Product Content & SEO Agent:</strong> Generates optimized descriptions and meta tags for thousands of SKUs automatically.
+    </div>
+    <div class="solution-item">
+        <strong>Personalization & Search Agent:</strong> Delivers dynamic recommendations and natural language search that understands customer intent.
+    </div>
+    <div class="solution-item">
+        <strong>Customer Service & Marketing Automation:</strong> Handles queries via chatbot and creates intelligent email campaigns and abandoned cart recovery.
+    </div>
+    
+    <h3 class="subsection-heading">Marketing & Content Services</h3>
+    <div class="solution-item">
+        <strong>Content Creation at Scale:</strong> Blog posts, social media content, website copy, and email campaigns that maintain brand voice and drive engagement.
+    </div>
+    <div class="solution-item">
+        <strong>SEO & AIEO Optimization:</strong> Content optimized for traditional search engines and AI platforms like ChatGPT, Perplexity, and Gemini.
+    </div>
+    <div class="solution-item">
+        <strong>Content Strategy & Management:</strong> Editorial calendars, posting schedules, and multi-channel campaign coordination.
+    </div>
+    
+    <!-- ABOUT NLIGHTN SECTION -->
+    <h2 class="section-heading">About NLightN Consulting</h2>
+    
+    <p>NLightN Consulting combines deep GenAI technical proficiency with strategic business advisory to fast-track AI adoption and deliver transformative results. We don't just implement technology—we partner with you to reimagine business processes and unlock new opportunities.</p>
+    
+    <h3 class="subsection-heading">GenAI Capabilities & Expertise</h3>
+    <ul class="capabilities-list">
+        <li><strong>6,000+ hours hands-on coding</strong> with GenAI applications across multiple industries and use cases</li>
+        <li><strong>Proven track record:</strong> AI solutions serving 2,500+ users, processing thousands of documents, driving measurable business impact</li>
+        <li><strong>Strategic approach:</strong> IIM Ahmedabad alumni with enterprise experience at TCS, eBay, Volvo bringing technical expertise and business strategy together</li>
+        <li><strong>Human + AI synergy:</strong> Seamless integration of AI solutions with your people and processes for transformative results</li>
+        <li><strong>End-to-end support:</strong> From AI maturity assessment and strategy to implementation, training, and continuous optimization</li>
+        <li><strong>Responsible AI:</strong> Ethical practices, data security, and governance frameworks prioritized in all implementations</li>
+    </ul>
+    
+    <h3 class="subsection-heading">Leadership Team</h3>
+    <div class="team-members">
+        <div class="team-member">
+            <strong>Sreekanth Sreedharan:</strong> Co-founder with 15+ years in program management and AI applications. MBA from IIM Ahmedabad, B.Tech from College of Engineering, Thiruvananthapuram. 6,000+ hours hands-on coding GenAI applications. Former roles at TCS, eBay, and Azim Premji Foundation.
+        </div>
+        
+        <div class="team-member">
+            <strong>Sreenath Manickom:</strong> Deep expertise in GenAI applications QA, user experience, and client requirements. 15+ years at Volvo spanning India and US operations. Specializes in GenAI application development and operational excellence.
+        </div>
+        
+        <div class="team-member">
+            <strong>Sanjay Varma:</strong> 20+ years in digital marketing and eCommerce. MBA from IIM Ahmedabad. Former roles at eBay, AOL, and UNICEF. Visiting faculty at MICA and other business schools.
+        </div>
+        
+        <div class="team-member">
+            <strong>Shyam Kumar:</strong> 27+ years in IT with global leadership. Former CTO at Axidio. Founded two companies with global presence. Expert in AI-driven platforms and digital transformation.
+        </div>
+        
+        <div class="team-member">
+            <strong>Stallon Selvan:</strong> 15+ years building and scaling products. Product Architect with expertise in product development. Founded multiple B2B SaaS products including JetPricer. Consulted enterprises ($100M+ revenue).
+        </div>
+    </div>
+    
+    <h3 class="subsection-heading">Our Approach</h3>
+    <p><strong>Discover & Assess:</strong> Understand your business challenges and identify high-impact GenAI opportunities through our AI maturity assessment.</p>
+    
+    <p><strong>Strategy & Roadmap:</strong> Develop comprehensive AI strategy aligned with business objectives, including phased implementation roadmap and ROI projections.</p>
+    
+    <p><strong>Build & Deploy:</strong> Design, develop, and deploy custom AI solutions using cutting-edge technology with seamless integration to existing systems.</p>
+    
+    <p><strong>Train & Optimize:</strong> Provide comprehensive training and continuously optimize solutions based on real-world performance and feedback.</p>
+    
+    <!-- CONTACT SECTION -->
+    <div class="contact-section">
+        <h3>Ready to Transform Your Business with Generative AI?</h3>
+        <p>If you want to explore how AI can drive growth and efficiency but aren't sure where to begin — let's talk.</p>
+        <p style="margin-top: 15px;">
+            <a href="mailto:sreekanth.sreedharan@nlightn.in">sreekanth.sreedharan@nlightn.in</a>
+        </p>
+        <p style="margin-top: 10px;">
+            <a href="https://wa.me/919731296263">WhatsApp: +91 97312 96263</a>
+        </p>
+    </div>
+</body>
+</html>
+

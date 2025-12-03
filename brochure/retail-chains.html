@@ -7,53 +7,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <style>
-        nav {
-            background: var(--ink);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        nav .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-logo {
-            font-size: 1.8rem;
-            font-weight: 800;
+        .brochure-header {
+            background: linear-gradient(135deg, #664022 0%, #8b5a3c 100%);
+            padding: 30px 40px;
+            margin: -40px -40px 40px -40px;
+            text-align: center;
             color: var(--paper);
-            text-decoration: none;
+        }
+        .brochure-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
             letter-spacing: -0.02em;
         }
-        .nav-menu {
-            display: flex;
-            gap: 35px;
-            list-style: none;
+        .brochure-header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin: 0;
+            opacity: 0.95;
         }
-        .nav-menu a {
-            color: var(--paper);
-            text-decoration: none;
-            font-size: 1rem;
-            font-family: 'DM Mono', monospace;
-            transition: color 0.3s ease;
-        }
-        .nav-menu a:hover, .nav-menu a.active {
-            color: var(--accent);
-        }
-        @media (max-width: 768px) {
-            nav .nav-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
+        @media print {
+            .brochure-header {
+                margin: 0 0 40px 0;
             }
         }
     </style>
@@ -61,20 +36,11 @@
 <body>
     <div class="grain"></div>
     
-    <nav>
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">NLightN</a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About Us</a></li>
-                <li><a href="../solutions.html" class="active">Solutions</a></li>
-                <li><a href="../portfolio.html">Portfolio</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    
     <div class="container">
+        <header class="brochure-header">
+            <h1>NLightN Consulting</h1>
+            <p>Empowering Businesses using AI</p>
+        </header>
         <header class="masthead">
             <h1 class="logo">NLightN</h1>
             <p class="tagline">Empowering Retail Chains Through Generative AI</p>
