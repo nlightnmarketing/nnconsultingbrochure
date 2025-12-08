@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Audit Report - Aarogya Hastha Hospitals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --secondary-teal: #00a896;
+            --success-green: #2d9a5e;
+            --warning-orange: #f5a623;
+            --danger-red: #e74c3c;
+            --dark-text: #1a1a1a;
+            --medium-text: #4a4a4a;
+            --light-text: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: var(--bg-light);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .report-header {
+            background: linear-gradient(135deg, #0066cc 0%, #00a896 100%);
+            padding: 60px 40px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .report-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .hospital-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .report-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .report-header .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .meta-item {
+            text-align: left;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .maturity-rating {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-teal);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 1.8rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--medium-text);
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid var(--secondary-teal);
+        }
+
+        /* Executive Summary Box */
+        .exec-summary {
+            background: linear-gradient(to right, #f0f9ff 0%, #e0f2f1 100%);
+            padding: 35px;
+            border-radius: 8px;
+            border-left: 6px solid var(--primary-blue);
+            margin-bottom: 40px;
+        }
+
+        .exec-summary p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+        }
+
+        th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 16px 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content {
+            color: var(--medium-text);
+            line-height: 1.7;
+        }
+
+        /* Rating Score */
+        .score-display {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-light);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .score {
+            color: var(--warning-orange);
+            font-size: 1.3rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        /* Highlights */
+        .highlight-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--warning-orange);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success-green);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .danger-box {
+            background: #fef2f2;
+            border-left: 4px solid var(--danger-red);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Action Plan */
+        .phase-container {
+            margin-bottom: 40px;
+        }
+
+        .phase-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 8px 8px 0 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .phase-content {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 25px;
+        }
+
+        .phase-content ol {
+            counter-reset: item;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .phase-content ol > li {
+            counter-increment: item;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .phase-content ol > li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--secondary-teal);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .phase-content ul {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .phase-content ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        .report-footer {
+            background: var(--dark-text);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .report-footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .report-header {
+                padding: 40px 20px;
+            }
+
+            .report-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .report-header .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 12px 10px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .card:hover {
+                transform: none;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="report-header">
+            <span class="hospital-icon">🏥</span>
+            <h1>Digital Marketing Audit Report</h1>
+            <p class="subtitle">Aarogya Hastha Hospitals</p>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    <div class="meta-label">Prepared For</div>
+                    <div class="meta-value">Hospital Management Team</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Date of Audit</div>
+                    <div class="meta-value">December 8, 2025</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Digital Maturity Rating</div>
+                    <div class="meta-value">
+                        <span class="maturity-rating">Moderate (6/10)</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Executive Summary -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">📊</span>
+                    Executive Summary
+                </h2>
+                
+                <div class="exec-summary">
+                    <p>Aarogya Hastha Hospitals (established 2022, Kasavanahalli, Bangalore) has built a solid digital <strong>foundation</strong> characterized by high patient satisfaction and strong local visibility. Its core digital assets include a modern, mobile-friendly website, a dedicated mobile app, and presence across all major social media platforms (X, LinkedIn, Instagram, Facebook).</p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Aspect</th>
+                                <th style="width: 40%;">Finding</th>
+                                <th style="width: 40%;">Risk / Opportunity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Online Reputation</strong></td>
+                                <td>Excellent (4.7–5.0 rating on Practo, Justdial)</td>
+                                <td><span class="badge badge-success">Strong Trust Signal</span> (Mitigates new player risk).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Local SEO</strong></td>
+                                <td>Strong directory presence and branded search visibility.</td>
+                                <td><span class="badge badge-warning">Broader Organic Potential Underexploited</span> (Only ranks for branded terms).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Content Marketing</strong></td>
+                                <td>Dedicated "Blog" section is <strong>empty</strong>. Content is fragmented on social media.</td>
+                                <td><span class="badge badge-danger">Major Missed Opportunity</span> for organic growth and authority-building.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Social Media</strong></td>
+                                <td>Good coverage, consistent posting (2–3 times/week).</td>
+                                <td><span class="badge badge-warning">Poor Engagement</span> (Avg. 0–1 Likes on X); Content often poster-based, lacking human element.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lead Generation</strong></td>
+                                <td>Functional CTAs (Book Now, WhatsApp, App).</td>
+                                <td><span class="badge badge-warning">Minimal Paid Efforts</span> and <span class="badge badge-warning">No Email Nurturing</span> limits scale and retention.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Key Finding:</strong> The hospital is currently over-reliant on word-of-mouth and directory traffic (Practo). Immediate action is required to activate the empty blog, standardize content depth, and transform its social presence from awareness posting into engaging, interactive patient education.</p>
+                </div>
+            </section>
+
+            <!-- Digital Footprint -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">🌐</span>
+                    1. Digital Footprint & Foundation
+                </h2>
+
+                <h3 class="section-subtitle">1.1 Hospital Overview</h3>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <ul>
+                            <li><strong>Location:</strong> Kasavanahalli Main Road, off Sarjapur Road, Bangalore.</li>
+                            <li><strong>Focus:</strong> Multi-specialty (15+ specialties), 50-bed facility.</li>
+                            <li><strong>Mission:</strong> "Caring Responsibly" – focused on compassionate, accessible, ethical healthcare.</li>
+                            <li><strong>Key Asset:</strong> Recently launched <strong>Mobile App</strong> for appointments, lab reports, and physiotherapy bookings.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">1.2 Website Analysis</h3>
+                
+                <p style="margin-bottom: 20px;">The website is the primary digital hub, scoring <span class="score-display"><span class="score">5/10</span> for marketing efficacy</span> due to basic SEO and lack of lead capture.</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Area</th>
+                                <th style="width: 40%;">Strength</th>
+                                <th style="width: 40%;">Weakness / Gap</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Structure</strong></td>
+                                <td>Clear, mobile-friendly navigation (Appointments, Doctors, Departments, Packages). High-intent CTAs (Emergency Number, Book Now) prominently displayed.</td>
+                                <td><strong>Inconsistent Content Depth</strong> across departments (e.g., Orthopaedics is rich; others generic).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SEO Elements</strong></td>
+                                <td>Effective use of location-specific terms in title tags (e.g., "Best Multi-Speciality Hospital in <strong>Bangalore</strong>").</td>
+                                <td><strong>Missing Meta Descriptions</strong> and use of <strong>limited keyword variety</strong> (no long-tail terms for specialties like "nephrology").</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lead Tools</strong></td>
+                                <td>WhatsApp integration, App download links (Google Play/App Store).</td>
+                                <td><strong>No visible email capture</strong> (newsletter/pop-up) or <strong>chatbot</strong> integration.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Content & Organic Visibility -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">📝</span>
+                    2. Content and Organic Visibility
+                </h2>
+
+                <h3 class="section-subtitle">2.1 Content Marketing Engine</h3>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Status</th>
+                                <th style="width: 40%;">Finding</th>
+                                <th style="width: 40%;">Risk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Blog/Content Hub</strong></td>
+                                <td>A "Health & Wellness Blog" section exists on the website but currently shows <strong>"No articles found."</strong></td>
+                                <td><span class="badge badge-danger">Major SEO Gap:</span> Without a live blog, the hospital cannot build domain authority, capture non-branded search traffic (e.g., "diabetes management tips"), or establish clinical authority.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Content Themes</strong></td>
+                                <td>Informative (videos on kidney health, posts on World Pneumonia Day).</td>
+                                <td><strong>Fragmented:</strong> Content is siloed to social media posts instead of being centralized for SEO benefit.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="section-subtitle">2.2 Social Media Engagement</h3>
+
+                <p style="margin-bottom: 20px;">The hospital has comprehensive platform coverage but suffers from low interaction, scoring <span class="score-display"><span class="score">4/10</span> for engagement</span>.</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Platform</th>
+                                <th style="width: 40%;">Activity & Content</th>
+                                <th style="width: 40%;">Engagement Issue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>X (Twitter)</strong></td>
+                                <td>Consistent posting (2–3 times/week): Doctor intros, health tips, event promotions.</td>
+                                <td><span class="badge badge-danger">Very Low Interaction:</span> Average 0–1 Likes, 20–80 Views, No replies/shares. Content is not breaking through the algorithm.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LinkedIn</strong></td>
+                                <td>Active (5,053 Followers): Focuses on corporate events (Walkathons), employee branding, and testimonials.</td>
+                                <td>Primarily B2B/Employer Branding; needs a dedicated B2C patient-focused strategy.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Instagram</strong></td>
+                                <td>Visual content (Reels, carousels) assumed; good for doctor spotlights and health days.</td>
+                                <td>Content often skewed towards generic "posters" instead of <strong>human-centered storytelling</strong> (doctors speaking, patient education reels).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Facebook</strong></td>
+                                <td>Used for local community updates and event promotion (e.g., diabetes camps).</td>
+                                <td>Activity is often inconsistent (bursts around events).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Local SEO & Reputation -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">⭐</span>
+                    3. Local SEO and Reputation Management
+                </h2>
+
+                <h3 class="section-subtitle">3.1 Online Reputation Management (ORM)</h3>
+
+                <div class="success-box">
+                    <p><strong>Strongest Asset:</strong> The ORM strategy is rated <span class="score-display"><span class="score" style="color: var(--success-green);">9/10</span></span>. Patient feedback is overwhelmingly positive, leveraging trust.</p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Platform</th>
+                                <th style="width: 15%;">Rating</th>
+                                <th style="width: 15%;">Review Count</th>
+                                <th style="width: 45%;">Key Themes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Practo</strong></td>
+                                <td><span class="badge badge-success">5.0</span></td>
+                                <td>33</td>
+                                <td>Doctor empathy, effective treatments.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Justdial</strong></td>
+                                <td><span class="badge badge-success">4.7</span></td>
+                                <td>2,128</td>
+                                <td>Cleanliness, polite staff, value for money.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AmbitionBox (Employees)</strong></td>
+                                <td><span class="badge badge-success">4.8</span></td>
+                                <td>53</td>
+                                <td>Positive work-life balance and job security.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">💡 Recommendation</div>
+                    <div class="card-content">
+                        <strong>Institutionalize review requests</strong> post-visit (SMS/WhatsApp) and ensure <strong>public, solution-oriented responses</strong> to all feedback, positive and negative.
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">3.2 Lead Generation & Paid Advertising</h3>
+
+                <div class="card">
+                    <div class="card-content">
+                        <ul>
+                            <li><strong>Current State:</strong> Leads rely entirely on organic efforts: direct app bookings, WhatsApp, and form submissions.</li>
+                            <li><strong>Gap:</strong> <span class="badge badge-warning">No visible evidence</span> of Google Ads, Facebook/Instagram boosts, or Retargeting.</li>
+                            <li><strong>Risk:</strong> Reliance on organic traffic severely <strong>limits growth scale</strong> in a competitive market.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Plan -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">🎯</span>
+                    4. Priority Action Plan (Next 90 Days)
+                </h2>
+
+                <!-- Phase 1 -->
+                <div class="phase-container">
+                    <div class="phase-header">
+                        Phase 1: Foundation & Quick Wins (0–30 Days)
+                    </div>
+                    <div class="phase-content">
+                        <ol>
+                            <li>
+                                <strong>Activate the Blog:</strong> Immediately resolve the "No articles found" issue. Publish <strong>5 high-quality articles</strong> centered on key revenue specialties (e.g., Orthopaedics, Nephrology) using doctors as by-lined authors to establish authority.
+                            </li>
+                            <li>
+                                <strong>SEO Hygiene:</strong> Add <strong>meta descriptions</strong> to all core service pages. Ensure NAP (Name, Address, Phone) consistency across the website, Google Business Profile, and Practo.
+                            </li>
+                            <li>
+                                <strong>Website Tweaks:</strong> Implement <strong>basic FAQs</strong> on the top 3 department pages (e.g., "Will insurance cover my procedure?").
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="phase-container">
+                    <div class="phase-header">
+                        Phase 2: Growth Experiments (30–60 Days)
+                    </div>
+                    <div class="phase-content">
+                        <ol>
+                            <li>
+                                <strong>Content Repurposing Engine:</strong> Transform each blog article into:
+                                <ul>
+                                    <li>1 Instagram/Facebook Carousel or Reel.</li>
+                                    <li>1 Short YouTube/WhatsApp video explainer.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Social Engagement Boost:</strong> Increase interactive content (polls, Q&As, behind-the-scenes content) on Instagram/Facebook, aiming for a <strong>5% interaction rate</strong>.
+                            </li>
+                            <li>
+                                <strong>Launch Paid Test:</strong> Initiate small <strong>geo-targeted Google Local Services Ads</strong> and/or Facebook lead generation forms in the Sarjapur–Kasavanahalli catchment area (Suggested initial budget: <strong>₹20,000</strong> to test conversion rates).
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="phase-container">
+                    <div class="phase-header">
+                        Phase 3: Optimisation & Scaling (60–90 Days)
+                    </div>
+                    <div class="phase-content">
+                        <ol>
+                            <li>
+                                <strong>Analytics Integration:</strong> Ensure all CTAs (Call, WhatsApp, Appointment Form) are <strong>fully tracked</strong> using Google Analytics 4 (GA4) and Google Tag Manager.
+                            </li>
+                            <li>
+                                <strong>Review Programme:</strong> Implement an automated SMS/WhatsApp review request system post-discharge to target <strong>10–15 new Google reviews/month.</strong>
+                            </li>
+                            <li>
+                                <strong>Double Down:</strong> Based on performance data, allocate 80% of resources and budget to the channel/specialty that yields the <strong>highest Conversion-to-Revenue</strong> (e.g., if Orthopaedics content + Practo reviews drive the most revenue, focus resources there).
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Note -->
+            <div class="success-box" style="margin-top: 50px;">
+                <h3 style="margin-bottom: 15px; color: var(--success-green);">📈 Path Forward</h3>
+                <p>Aarogya Hastha Hospitals has a strong foundation built on genuine patient satisfaction. By activating dormant assets (the blog), systematizing engagement (social media strategy), and testing paid channels, the hospital can transform from a locally-known facility into a digitally-dominant healthcare provider in the Sarjapur-Kasavanahalli corridor.</p>
+                <p style="margin-top: 15px;"><strong>Success will be measured by:</strong> Organic traffic growth, social engagement rates, cost-per-lead from paid campaigns, and ultimately, patient acquisition cost vs. lifetime value.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="report-footer">
+            <p>This audit report is confidential and prepared exclusively for Aarogya Hastha Hospitals management.</p>
+            <p style="margin-top: 10px;">© 2025 Digital Marketing Audit | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
