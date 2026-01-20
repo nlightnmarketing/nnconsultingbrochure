@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solutions for Financial Services - NLightN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--paper);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            padding: 60px 40px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-header {
+            margin-bottom: 40px;
+        }
+
+        .slide-number {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--ink);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .slide-subtitle {
+            font-size: 1.3rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .offering-card {
+            background: white;
+            border: 2px solid var(--ink);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+        }
+
+        .offering-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--ink);
+        }
+
+        .offering-why {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: var(--ink);
+        }
+
+        .offering-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            padding: 15px;
+            background: var(--highlight);
+            border-left: 4px solid var(--accent);
+        }
+
+        .detail-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .portfolio-link {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--highlight);
+            border-left: 4px solid var(--accent);
+        }
+
+        .portfolio-link-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--ink);
+        }
+
+        .portfolio-projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            padding: 8px 15px;
+            background: white;
+            border: 2px solid var(--ink);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ink);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-tag:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        }
+
+        .positioning {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(252, 185, 0, 0.1) 0%, rgba(255, 105, 0, 0.1) 100%);
+            border-left: 4px solid var(--accent-dark);
+        }
+
+        .positioning-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--ink);
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav-button {
+            background: var(--ink);
+            color: var(--paper);
+            border: none;
+            padding: 12px 24px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--ink);
+        }
+
+        .nav-button:hover {
+            background: var(--accent);
+            color: var(--ink);
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-indicator {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--ink);
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid var(--ink);
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-button {
+            background: white;
+            border: 2px solid var(--ink);
+            padding: 10px 15px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        }
+
+        .control-button.active {
+            background: var(--accent);
+            color: var(--ink);
+        }
+
+        .intro-slide {
+            text-align: center;
+        }
+
+        .intro-slide .slide-title {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+
+        .intro-slide .slide-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--ink);
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+            }
+
+            .slide-title {
+                font-size: 2rem;
+            }
+
+            .offering-details {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                bottom: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .controls {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    
+    <div class="controls">
+        <button class="control-button" id="autoplayBtn">Auto-play: OFF</button>
+        <button class="control-button" onclick="window.location.href='portfolio.html'">View Portfolio</button>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Intro Slide -->
+        <div class="slide active intro-slide">
+            <div class="slide-header">
+                <div class="slide-number">NLightN Consulting</div>
+                <h1 class="slide-title">AI Solutions for Financial Services</h1>
+                <p class="slide-subtitle">High-Potential Offerings Based on Proven Portfolio</p>
+            </div>
+            <div class="intro-content">
+                <p>This presentation showcases 7 AI-powered solutions tailored for financial services organizations, each backed by our proven track record of successful implementations across healthcare, finance, HR, and enterprise domains.</p>
+            </div>
+        </div>
+
+        <!-- Slide 1: Internal AI Copilot -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Offering 01 / 07</div>
+                <h2 class="slide-title">Internal AI Copilot for Loan Officers</h2>
+                <p class="slide-subtitle">Reduce TAT from days to hours, cut manual errors</p>
+            </div>
+            <div class="offering-card">
+                <div class="offering-name">Internal AI Copilot for Loan Officers / Credit Analysts</div>
+                <div class="offering-why">
+                    Organizations managing end-to-end loan lifecycle (acquisition → risk → credit → ops → portfolio) can benefit from a GenAI agent that reads uploaded docs, extracts KYC/financials, flags risks, suggests credit decisions, drafts emails/notes.
+                </div>
+                <div class="positioning">
+                    <div class="positioning-text">Reduce TAT from days to hours, cut manual errors, help analysts focus on high-value judgment.</div>
+                </div>
+                <div class="portfolio-link">
+                    <div class="portfolio-link-title">Proven Capabilities from Our Portfolio:</div>
+                    <div class="portfolio-projects">
+                        <span class="portfolio-tag">Project 01: Healthcare Analytics (NLP Platform, Document Processing)</span>
+                        <span class="portfolio-tag">Project 07: Grant Processing (Document Processing, Drafting)</span>
+                        <span class="portfolio-tag">Project 05: NPO Analytics (Natural Language Querying)</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--muted);">We've built enterprise-grade NLP platforms that process complex documents, extract structured data, and enable natural language interactions—exactly what loan officers need.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: RAG-Powered Knowledge Agent -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Offering 02 / 07</div>
+                <h2 class="slide-title">RAG-Powered Knowledge Agent for Compliance</h2>
+            </div>
+            <div class="offering-card">
+                <div class="offering-name">RAG-Powered Knowledge Agent for Compliance, Policies & RBI Circulars</div>
+                <div class="offering-why">
+                    Financial institutions live/die on regulatory compliance. Build a private RAG agent that ingests all internal policies, RBI/SEBI circulars, past audit findings, and answers questions in natural language.
+                </div>
+                <div class="portfolio-link">
+                    <div class="portfolio-link-title">Proven Capabilities from Our Portfolio:</div>
+                    <div class="portfolio-projects">
+                        <span class="portfolio-tag">Project 02: PolicyBot (RAG Architecture, Policy Q&A, Multilingual)</span>
+                        <span class="portfolio-tag">Project 01: Healthcare Analytics (RAG with Pinecone)</span>
+                        <span class="portfolio-tag">Project 07: Grant Processing (Hybrid RAG Context Engineering)</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--muted);">PolicyBot successfully serves 1,500 employees with 24/7 policy guidance. We've proven RAG architecture works for compliance-critical domains.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Voice AI Agent -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Offering 03 / 07</div>
+                <h2 class="slide-title">AI Agent for Customer Onboarding</h2>
+                <p class="slide-subtitle">24×7 human-like support, reduces drop-off</p>
+            </div>
+            <div class="offering-card">
+                <div class="offering-name">AI Agent for Customer/Investor Onboarding & Support</div>
+                <div class="offering-why">
+                    B2C investor apps and retail co-lending operations need fast onboarding. Voice + WhatsApp/IVR agent that collects KYC, answers FAQs, schedules calls, follows up on documents.
+                </div>
+                <div class="positioning">
+                    <div class="positioning-text">24×7 human-like support in Hindi/English/Tamil/Kannada, reduces drop-off.</div>
+                </div>
+                <div class="portfolio-link">
+                    <div class="portfolio-link-title">Proven Capabilities from Our Portfolio:</div>
+                    <div class="portfolio-projects">
+                        <span class="portfolio-tag">Project 02: PolicyBot (Voice Mode Input, Multilingual Support)</span>
+                        <span class="portfolio-tag">Project 05: NPO Analytics (WhatsApp Business API Integration)</span>
+                        <span class="portfolio-tag">Project 08: L&D Platform (WhatsApp Integration)</span>
+                        <span class="portfolio-tag">Project 06: Spoken English Coach (Voice AI, Multilingual)</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--muted);">We've built voice-enabled, multilingual AI assistants and WhatsApp-integrated solutions that serve thousands of users across India.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Fund Accounting Assistant -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Offering 04 / 07</div>
+                <h2 class="slide-title">GenAI-Powered Fund Accounting Assistant</h2>
+                <p class="slide-subtitle">From hours to minutes for monthly investor updates</p>
+            </div>
+            <div class="offering-card">
+                <div class="offering-name">GenAI-Powered Fund Accounting & Investor Reporting Assistant</div>
+                <div class="offering-why">
+                    Asset management firms need accurate, fast reporting. Agent that reads Excel/CSV fund data, generates investor reports, explains variances, drafts commentary.
+                </div>
+                <div class="positioning">
+                    <div class="positioning-text">From hours to minutes for monthly investor updates. Zero formatting errors.</div>
+                </div>
+                <div class="portfolio-link">
+                    <div class="portfolio-link-title">Proven Capabilities from Our Portfolio:</div>
+                    <div class="portfolio-projects">
+                        <span class="portfolio-tag">Project 05: NPO Analytics (Natural Language Report Generation)</span>
+                        <span class="portfolio-tag">Project 01: Healthcare Analytics (Analytics Platform, Data Processing)</span>
+                        <span class="portfolio-tag">Project 07: Grant Processing (Auto-summarization, Report Drafting)</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--muted);">We've built AI systems that generate comprehensive reports from complex data, enabling faster decision-making for leadership teams.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Custom LLM Fine-tune -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Offering 05 / 07</div>
+                <h2 class="slide-title">Custom LLM Fine-tune for Risk & Underwriting</h2>
+                <p class="slide-subtitle">Your own risk model that learns from your data</p>
+            </div>
+            <div class="offering-card">
+                <div class="offering-name">Custom LLM Fine-tune for Risk & Underwriting</div>
+                <div class="offering-why">
+                    Train a private model on historical loan data to predict default risk, fraud flags, or suggest pricing. (Sensitive data → private cloud deployment)
+                </div>
+                <div class="positioning">
+                    <div class="positioning-text">Your own risk model that learns from your data, outperforms generic bureau scores.</div>
+                </div>
+                <div class="portfolio-link">
+                    <div class="portfolio-link-title">Proven Capabilities from Our Portfolio:</div>
+                    <div class="portfolio-projects">
+                        <span class="portfolio-tag">Project 05: NPO Analytics (AI Analytics Platform, Predictive Insights)</span>
+                        <span class="portfolio-tag">Project 01: Healthcare Analytics (Enterprise-Grade NLP, Pattern Recognition)</span>
+                        <span class="portfolio-tag">Project 03: Fractional CTO (Cloud Architecture, Secure Deployment)</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--muted);">We've built enterprise-grade AI platforms that process sensitive data securely and deliver predictive insights. Our cloud architecture expertise ensures private deployment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Dashboard & Analytics Agent -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Offering 06 / 07</div>
+                <h2 class="slide-title">AI-Powered Dashboard & Analytics Agent</h2>
+                <p class="slide-subtitle">Ask anything about your portfolio like talking to a data analyst</p>
+            </div>
+            <div class="offering-card">
+                <div class="offering-name">AI-Powered Dashboard & Analytics Agent</div>
+                <div class="offering-why">
+                    Natural language querying over data warehouses (e.g., "Show me portfolio delinquency trend by sector last 6 months").
+                </div>
+                <div class="positioning">
+                    <div class="positioning-text">Ask anything about your portfolio like talking to a data analyst.</div>
+                </div>
+                <div class="portfolio-link">
+                    <div class="portfolio-link-title">Proven Capabilities from Our Portfolio:</div>
+                    <div class="portfolio-projects">
+                        <span class="portfolio-tag">Project 05: NPO Analytics (Natural Language Querying & Dashboarding)</span>
+                        <span class="portfolio-tag">Project 01: Healthcare Analytics (Cross-program Analytics via NL Queries)</span>
+                        <span class="portfolio-tag">Project 05: NPO Analytics (WhatsApp Query-in-PDF Analysis)</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--muted);">We've built natural language querying systems that enable non-technical users to extract insights from complex data warehouses—exactly what portfolio managers need.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Document Intelligence Agent -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Offering 07 / 07</div>
+                <h2 class="slide-title">Document Intelligence Agent for KYC</h2>
+                <p class="slide-subtitle">Cut manual data entry, reduce onboarding time from days</p>
+            </div>
+            <div class="offering-card">
+                <div class="offering-name">Document Intelligence Agent for KYC & Loan File Processing</div>
+                <div class="offering-why">
+                    OCR + GenAI extraction from PAN, Aadhaar, bank statements, GST returns, etc. Auto-fill forms, flag mismatches.
+                </div>
+                <div class="positioning">
+                    <div class="positioning-text">Cut manual data entry, reduce onboarding time from days.</div>
+                </div>
+                <div class="portfolio-link">
+                    <div class="portfolio-link-title">Proven Capabilities from Our Portfolio:</div>
+                    <div class="portfolio-projects">
+                        <span class="portfolio-tag">Project 07: Grant Processing (End-to-End Document Processing Pipeline)</span>
+                        <span class="portfolio-tag">Project 01: Healthcare Analytics (Multi-modal Data Ingestion - PDFs)</span>
+                        <span class="portfolio-tag">Project 05: NPO Analytics (Query-in-PDF Analysis)</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--muted);">We've built document processing pipelines that extract structured data from complex documents, enabling automated workflows for grant processing and healthcare analytics.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Slide -->
+        <div class="slide intro-slide">
+            <div class="slide-header">
+            </div>
+            <div class="intro-content">
+                <p>Each of these solutions is backed by proven implementations in similar domains. We bring not just technology, but deep understanding of how AI transforms business processes.</p>
+                <p style="margin-top: 30px; font-size: 1rem; color: var(--muted);">
+                    <strong>Contact:</strong> <a href="mailto:info@nlightn.in" style="color: var(--accent-dark);">sreekanth.sreedharan@nlightn.in</a><br>
+                    <strong>Portfolio:</strong> <a href="portfolio.html" style="color: var(--accent-dark);">View our complete portfolio</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <div class="slide-indicator">
+            <span id="currentSlide">1</span> / <span id="totalSlides">9</span>
+        </div>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let autoplayInterval = null;
+        let autoplayActive = false;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex = (n + totalSlides) % totalSlides;
+            
+            slides[currentSlideIndex].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').disabled = currentSlideIndex === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+        }
+
+        function toggleAutoplay() {
+            autoplayActive = !autoplayActive;
+            const btn = document.getElementById('autoplayBtn');
+            btn.textContent = `Auto-play: ${autoplayActive ? 'ON' : 'OFF'}`;
+            btn.classList.toggle('active', autoplayActive);
+            
+            if (autoplayActive) {
+                autoplayInterval = setInterval(() => {
+                    if (currentSlideIndex < totalSlides - 1) {
+                        changeSlide(1);
+                    } else {
+                        // Loop back to start
+                        showSlide(0);
+                    }
+                }, 8000); // 8 seconds per slide
+            } else {
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                    autoplayInterval = null;
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (e.key === ' ') {
+                e.preventDefault();
+                toggleAutoplay();
+            }
+        });
+
+        // Initialize autoplay button
+        document.getElementById('autoplayBtn').addEventListener('click', toggleAutoplay);
+
+        // Initialize first slide
+        showSlide(0);
+    </script>
+</body>
+</html>
