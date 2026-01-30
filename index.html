@@ -244,6 +244,20 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* CLIENTS CAROUSEL */
+        .clients-section { padding: 40px 0; }
+        .clients-carousel { overflow: hidden; position: relative; }
+        .clients-track-wrap { display: flex; gap: 0; align-items: center; width: max-content; animation: scroll 20s linear infinite; will-change: transform; }
+        .clients-track { display: flex; gap: 40px; align-items: center; flex: 0 0 auto; }
+        .client-item { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px; flex: 0 0 auto; }
+        .client-item img { max-height: 60px; max-width: 160px; object-fit: contain; opacity: 0.95; transition: opacity 0.3s ease, transform 0.3s ease; display:block; margin-bottom: 8px; }
+        .client-item img[src$=".svg"] { height: 180px !important; max-height: 180px !important; width: auto; max-width: 450px !important; }
+        .client-item img.scholar-planet-logo { height: 90px !important; max-height: 90px !important; width: auto; max-width: 240px !important; }
+        .client-item img:hover { opacity: 1; transform: scale(1.03); }
+        .client-item .client-name { font-size: 0.85rem; color: var(--ink); font-family: 'DM Mono', monospace; text-align: center; margin-top: 4px; }
+        .clients-carousel:hover .clients-track-wrap { animation-play-state: paused; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
 </head>
 <body>
@@ -322,6 +336,35 @@
                 <p class="service-desc">Our AI training programme helps businesses learn practical AI applications to drive immediate value. Workshops are designed for owners, executives, and staff of small and medium businesses seeking hands-on training with current AI tools. Available as live online sessions or in-person formats.</p>
             </div>
         </section>
+    </div>
+    
+    <div class="clients-section">
+        <div class="container">
+            <div class="section-marker">Our Clients</div>
+            <h2 class="section-title">Trusted by</h2>
+            <div class="clients-carousel" aria-label="Client logos carousel" role="region">
+                <div class="clients-track-wrap">
+                    <div class="clients-track" aria-hidden="false">
+                        <div class="client-item"><img src="assets/Client logos/lilogo.avif" alt="Li logo"></div>
+                        <div class="client-item scholar-planet-container"><img src="assets/Client logos/logo-tx-white.png" alt="Logo TX" class="scholar-planet-logo"></div>
+                        <div class="client-item"><img src="assets/Client logos/prosol-logo.webp" alt="Prosol"></div>
+                        <div class="client-item"><img src="assets/Client logos/apf logo.png" alt="APF"></div>
+                        <div class="client-item"><img src="assets/Client logos/lvbl.png" alt="LVBL"></div>
+                        <div class="client-item"><img src="assets/Client logos/wipro_earthian logo.svg" alt="Wipro Earthian"></div>
+                        <div class="client-item"><img src="assets/Client logos/wipro_foundation logo.svg" alt="Wipro Foundation"></div>
+                    </div>
+                    <div class="clients-track" aria-hidden="true">
+                        <div class="client-item"><img src="assets/Client logos/lilogo.avif" alt="Li logo"></div>
+                        <div class="client-item scholar-planet-container"><img src="assets/Client logos/logo-tx-white.png" alt="Logo TX" class="scholar-planet-logo"></div>
+                        <div class="client-item"><img src="assets/Client logos/prosol-logo.webp" alt="Prosol"></div>
+                        <div class="client-item"><img src="assets/Client logos/apf logo.png" alt="APF"></div>
+                        <div class="client-item"><img src="assets/Client logos/lvbl.png" alt="LVBL"></div>
+                        <div class="client-item"><img src="assets/Client logos/wipro_earthian logo.svg" alt="Wipro Earthian"></div>
+                        <div class="client-item"><img src="assets/Client logos/wipro_foundation logo.svg" alt="Wipro Foundation"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div class="solutions-preview">
