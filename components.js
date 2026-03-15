@@ -1,4 +1,13 @@
 (function () {
+    var _u = 'sreekanth';
+    var _d = 'nlightnconsulting.com';
+    function _email() { return _u + '@' + _d; }
+    function _mailto(subject) {
+        var href = 'mai' + 'lto:' + _email();
+        if (subject) href += '?subject=' + encodeURIComponent(subject);
+        return href;
+    }
+
     var NAV_ITEMS = [
         { label: 'Home', href: '/' },
         { label: 'Services', href: '/services/' },
@@ -36,11 +45,25 @@
             '<div class="footer-inner">' +
                 '<span>&copy; ' + year + ' NLightN Consulting</span>' +
                 '<div class="footer-links">' +
-                    '<a href="mailto:sreekanth@nlightnconsulting.com">Email</a>' +
+                    '<a href="' + _mailto() + '">Email</a>' +
                     '<a href="https://www.linkedin.com/company/nlightn-consulting" target="_blank" rel="noopener">LinkedIn</a>' +
                 '</div>' +
             '</div>' +
         '</footer>';
+    }
+
+    function hydrateEmailPlaceholders() {
+        var els = document.querySelectorAll('[data-email]');
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            var subject = el.getAttribute('data-email-subject') || '';
+            if (el.tagName === 'A') {
+                el.href = _mailto(subject);
+                if (el.hasAttribute('data-email-text')) el.textContent = _email();
+            } else {
+                el.textContent = _email();
+            }
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -49,6 +72,8 @@
 
         if (headerEl) headerEl.outerHTML = buildHeader();
         if (footerEl) footerEl.outerHTML = buildFooter();
+
+        hydrateEmailPlaceholders();
 
         var toggle = document.querySelector('.nav-toggle');
         var links = document.querySelector('.nav-links');
