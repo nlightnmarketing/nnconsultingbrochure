@@ -1,7 +1,11 @@
 (function () {
     var _u = 'sreekanth.sreedharan';
     var _d = 'nlightn.in';
+    var _ph = ['+91', '97312', '96263'];
     function _email() { return _u + '@' + _d; }
+    function _phone() { return _ph.join(' '); }
+    function _phoneHref() { return 'te' + 'l:' + _ph.join(''); }
+    function _waHref() { return 'https://wa' + '.me/91' + _ph[1] + _ph[2]; }
     function _mailto(subject) {
         var href = 'mai' + 'lto:' + _email();
         if (subject) href += '?subject=' + encodeURIComponent(subject);
@@ -10,6 +14,7 @@
 
     var NAV_ITEMS = [
         { label: 'Home', href: '/' },
+        { label: 'About', href: '/about/' },
         { label: 'Services', href: '/services/' },
         { label: 'Work', href: '/work/' },
         { label: 'Reach Out', href: '/reach-out/' }
@@ -52,16 +57,26 @@
         '</footer>';
     }
 
-    function hydrateEmailPlaceholders() {
-        var els = document.querySelectorAll('[data-email]');
-        for (var i = 0; i < els.length; i++) {
-            var el = els[i];
+    function hydratePlaceholders() {
+        var emailEls = document.querySelectorAll('[data-email]');
+        for (var i = 0; i < emailEls.length; i++) {
+            var el = emailEls[i];
             var subject = el.getAttribute('data-email-subject') || '';
             if (el.tagName === 'A') {
                 el.href = _mailto(subject);
                 if (el.hasAttribute('data-email-text')) el.textContent = _email();
             } else {
                 el.textContent = _email();
+            }
+        }
+        var phoneEls = document.querySelectorAll('[data-phone]');
+        for (var j = 0; j < phoneEls.length; j++) {
+            var pe = phoneEls[j];
+            if (pe.tagName === 'A') {
+                pe.href = pe.hasAttribute('data-whatsapp') ? _waHref() : _phoneHref();
+                if (pe.hasAttribute('data-phone-text')) pe.textContent = _phone();
+            } else {
+                pe.textContent = _phone();
             }
         }
     }
@@ -73,7 +88,7 @@
         if (headerEl) headerEl.outerHTML = buildHeader();
         if (footerEl) footerEl.outerHTML = buildFooter();
 
-        hydrateEmailPlaceholders();
+        hydratePlaceholders();
 
         var toggle = document.querySelector('.nav-toggle');
         var links = document.querySelector('.nav-links');

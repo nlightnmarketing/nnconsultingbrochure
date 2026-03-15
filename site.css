@@ -464,6 +464,14 @@ img {
     border-bottom: 1px solid var(--gray-200);
 }
 
+.portfolio-item .screenshot-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--gray-200);
+}
+
 .portfolio-body {
     padding: 24px;
 }
