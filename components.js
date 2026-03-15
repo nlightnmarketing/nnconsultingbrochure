@@ -1,6 +1,6 @@
 (function () {
-    var _u = 'sreekanth';
-    var _d = 'nlightnconsulting.com';
+    var _u = 'sreekanth.sreedharan';
+    var _d = 'nlightn.in';
     function _email() { return _u + '@' + _d; }
     function _mailto(subject) {
         var href = 'mai' + 'lto:' + _email();
