@@ -131,6 +131,93 @@
             line-height: 1.6;
         }
 
+        .lead-form-section {
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            padding: 80px 0;
+        }
+
+        .lead-form-wrap {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .lead-form-wrap .section-label,
+        .lead-form-wrap .section-title {
+            text-align: center;
+        }
+
+        .lead-form-wrap .section-subtitle {
+            text-align: center;
+            margin: 0 auto 40px;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            border: 1px solid var(--gray-300);
+            background: var(--paper);
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-field input:focus {
+            border-color: var(--ink);
+        }
+
+        .form-field input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .lead-form .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: 8px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .form-msg {
+            text-align: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            padding: 16px;
+            display: none;
+        }
+
+        .form-msg.success {
+            display: block;
+            color: #1a7f37;
+            background: #dafbe1;
+            border: 1px solid #acdebf;
+        }
+
+        .form-msg.error {
+            display: block;
+            color: #9a2c2c;
+            background: #fde8e8;
+            border: 1px solid #f0b8b8;
+        }
+
         @media (max-width: 768px) {
             .curriculum-strip {
                 grid-template-columns: 1fr;
@@ -151,6 +238,9 @@
         <p class="section-label">Professional Development Program</p>
         <h1 class="hero-title">AI Reskilling for<br>IT Professionals</h1>
         <p class="hero-sub">An intensive, production-focused program that transforms experienced IT professionals into AI engineers — from theory to deployment in six weeks.</p>
+        <div style="margin-top: 36px;">
+            <a href="#register" class="btn btn-primary">Register Your Interest</a>
+        </div>
     </section>
 </div>
 
@@ -287,7 +377,7 @@
             </div>
             <div class="training-card">
                 <div class="training-card-label">Professional Badge</div>
-                <div class="training-card-value">Credly-verified "AI Engineering Practitioner"</div>
+                <div class="training-card-value">"AI Engineering Practitioner" Badge</div>
             </div>
             <div class="training-card">
                 <div class="training-card-label">Detailed Transcript</div>
@@ -297,16 +387,89 @@
     </section>
 </div>
 
-<div class="dark-section">
-    <div class="container" style="text-align: center;">
-        <p class="section-label">Ready to Transform Your Career?</p>
-        <h2 class="section-title" style="color: #fff; max-width: 700px; margin: 0 auto 20px;">Join the Next Cohort</h2>
-        <p class="section-subtitle" style="color: var(--gray-400); margin: 0 auto 36px; max-width: 560px;">Reach out to learn about upcoming batches, pricing, and how this program can fit your schedule.</p>
-        <a href="/reach-out/" class="btn btn-white">Get in Touch</a>
+<div id="register" class="lead-form-section">
+    <div class="container">
+        <div class="lead-form-wrap">
+            <p class="section-label">Ready to Transform Your Career?</p>
+            <h2 class="section-title">Register Your Interest</h2>
+            <p class="section-subtitle">Share your details and we'll reach out with upcoming batch dates, pricing, and next steps.</p>
+
+            <form id="training-lead-form" class="lead-form" novalidate>
+                <div class="form-field">
+                    <label for="lead-name">Full Name</label>
+                    <input type="text" id="lead-name" name="name" placeholder="Jane Doe" required>
+                </div>
+                <div class="form-field">
+                    <label for="lead-email">Email Address</label>
+                    <input type="email" id="lead-email" name="email" placeholder="jane@example.com" required>
+                </div>
+                <div class="form-field">
+                    <label for="lead-phone">Mobile Number</label>
+                    <input type="tel" id="lead-phone" name="phone" placeholder="+91 98765 43210" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div id="form-msg" class="form-msg"></div>
+        </div>
     </div>
 </div>
 
 <div id="site-footer"></div>
 <script src="/components.js"></script>
+<script>
+(function () {
+    var form = document.getElementById('training-lead-form');
+    var msgEl = document.getElementById('form-msg');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msgEl.className = 'form-msg';
+        msgEl.style.display = 'none';
+
+        var name = form.name.value.trim();
+        var email = form.email.value.trim();
+        var phone = form.phone.value.trim();
+
+        if (!name || !email || !phone) {
+            showMsg('Please fill in all fields.', 'error');
+            return;
+        }
+
+        var btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Submitting…';
+        btn.disabled = true;
+
+        fetch('https://api.fridayi.com/api/v2/popupbot/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                bot_id: 'fec62ce883b44095a259c09303a95ecc',
+                name: name,
+                email: email,
+                phone: phone
+            })
+        })
+        .then(function (res) {
+            if (!res.ok) throw new Error('Request failed');
+            return res.json();
+        })
+        .then(function () {
+            form.style.display = 'none';
+            showMsg('Thanks, ' + name.split(' ')[0] + '! We\u2019ll be in touch soon.', 'success');
+        })
+        .catch(function () {
+            showMsg('Something went wrong. Please try again or email us directly.', 'error');
+            btn.textContent = 'Submit';
+            btn.disabled = false;
+        });
+    });
+
+    function showMsg(text, type) {
+        msgEl.textContent = text;
+        msgEl.className = 'form-msg ' + type;
+        msgEl.style.display = 'block';
+    }
+})();
+</script>
 </body>
 </html>
