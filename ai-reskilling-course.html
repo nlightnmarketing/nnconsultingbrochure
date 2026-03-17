@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Reskilling for Mid-Career IT Professionals</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #151922;
+            --bg-tertiary: #1e2330;
+            --accent-bright: #00ff88;
+            --accent-warm: #ff6b35;
+            --text-primary: #e8eaed;
+            --text-secondary: #a8b3c1;
+            --text-muted: #6b7785;
+            --border-subtle: #2a3140;
+            --glow: rgba(0, 255, 136, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Pro', serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Animated background grid */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--border-subtle) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .header {
+            padding: 6rem 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+            50% { transform: scale(1.2) translate(-20px, 20px); opacity: 0.8; }
+        }
+        
+        .header-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-bright);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+        
+        .header h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+        
+        .header h1 .highlight {
+            color: var(--accent-bright);
+            position: relative;
+        }
+        
+        .header h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-bright);
+            box-shadow: 0 0 20px var(--accent-bright);
+        }
+        
+        .header-description {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+        
+        .content {
+            padding: 0 3rem 4rem;
+        }
+        
+        .overview-panel {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-bright);
+            padding: 3rem;
+            margin-bottom: 6rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+        
+        .overview-panel::before {
+            content: '>';
+            position: absolute;
+            left: -2px;
+            top: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-bright);
+            font-size: 2rem;
+            animation: blink 1.5s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+        
+        .overview-panel p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        
+        .section {
+            margin-bottom: 6rem;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 1rem;
+        }
+        
+        .section-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-bright);
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-bright), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .info-card:hover {
+            border-color: var(--accent-bright);
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .info-card:hover::before {
+            opacity: 1;
+        }
+        
+        .info-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-warm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+        
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .list-items {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .list-items li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .list-items li:last-child {
+            border-bottom: none;
+        }
+        
+        .list-items li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-bright);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+        }
+        
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .instructor-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .instructor-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent-bright);
+            transition: width 0.3s ease;
+        }
+        
+        .instructor-card:hover::after {
+            width: 100%;
+        }
+        
+        .instructor-card:hover {
+            border-color: var(--accent-bright);
+        }
+        
+        .instructor-role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-warm);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .instructor-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .instructor-card ul {
+            list-style: none;
+        }
+        
+        .instructor-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .instructor-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-bright);
+        }
+        
+        .module {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .module::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-bright), var(--accent-warm));
+        }
+        
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .module-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .module-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .meta-item::before {
+            content: '//';
+            color: var(--accent-bright);
+        }
+        
+        .subsection {
+            margin: 2rem 0;
+        }
+        
+        .subsection h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-warm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        
+        .subsection ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .subsection li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            border-left: 2px solid var(--border-subtle);
+            margin-left: 1rem;
+        }
+        
+        .subsection li::before {
+            content: '▸';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--accent-bright);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+        }
+        
+        .schedule-table thead {
+            background: var(--bg-tertiary);
+        }
+        
+        .schedule-table th {
+            padding: 1.5rem 1.5rem;
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-bright);
+        }
+        
+        .schedule-table td {
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+        
+        .schedule-table td:first-child {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-warm);
+            font-weight: 600;
+        }
+        
+        .schedule-table tbody tr {
+            transition: background 0.2s ease;
+        }
+        
+        .schedule-table tbody tr:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .assessment-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .assessment-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--glow) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .assessment-item:hover {
+            border-color: var(--accent-bright);
+            transform: translateY(-4px);
+        }
+        
+        .assessment-item:hover::before {
+            opacity: 1;
+        }
+        
+        .assessment-weight {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-bright);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .assessment-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .assessment-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight-box {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-warm);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .highlight-box strong {
+            color: var(--accent-warm);
+        }
+        
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .badge {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-bright), var(--accent-warm));
+        }
+        
+        .badge-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            filter: grayscale(0.3);
+        }
+        
+        .badge h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .badge p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .footer {
+            background: var(--bg-tertiary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 3rem;
+            text-align: center;
+            margin-top: 6rem;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .footer p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .footer-accent {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-bright);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            letter-spacing: 0.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 4rem 2rem 2rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-description {
+                font-size: 1.2rem;
+            }
+            
+            .content {
+                padding: 0 2rem 4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .module {
+                padding: 2rem;
+            }
+            
+            .schedule-table {
+                font-size: 0.85rem;
+            }
+            
+            .schedule-table th,
+            .schedule-table td {
+                padding: 1rem 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="header-label">Professional Development Program</div>
+            <h1>
+                <span class="highlight">AI Reskilling</span> for<br>
+                Mid-Career IT Professionals
+            </h1>
+            <p class="header-description">
+                An intensive, production-focused program that transforms experienced IT professionals into AI engineers—from theory to deployment in six weeks.
+            </p>
+        </div>
+        
+        <div class="content">
+            <div class="overview-panel">
+                <p>
+                    Master practical AI engineering through hands-on experience with fine-tuned LLMs, RAG systems, and autonomous agents. Build production-ready solutions using IBM Granite, Pydantic AI, and modern deployment stacks. Designed for immediate impact in enterprise environments.
+                </p>
+            </div>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">Who This Is For</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Experience</h3>
+                        <p>IT professionals with 5+ years in the field</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Current Roles</h3>
+                        <p>Software engineers, sysadmins, data analysts</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Career Trajectory</h3>
+                        <p>Technical leads transitioning to AI/ML</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Technical Base</h3>
+                        <p>Python proficiency, Linux familiarity</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Learning Outcomes</h2>
+                </div>
+                <ul class="list-items">
+                    <li>Architect and explain core AI/ML concepts and LLM architectures</li>
+                    <li>Fine-tune open-source LLMs on domain-specific datasets</li>
+                    <li>Deploy scalable inference servers with comprehensive monitoring</li>
+                    <li>Build production-grade RAG systems with vector databases</li>
+                    <li>Design and implement goal-oriented AI agents</li>
+                    <li>Integrate AI components into enterprise workflows</li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Program Structure</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Duration</h3>
+                        <p>6 weeks, part-time format</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Total Hours</h3>
+                        <p>96 hours (36 live + 60 self-paced)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Format</h3>
+                        <p>Hybrid: live sessions + hands-on labs</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Weekly Load</h3>
+                        <p>16 hours (2×3hr live + 10hr practice)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">Instructional Team</h2>
+                </div>
+                <div class="instructor-grid">
+                    <div class="instructor-card">
+                        <div class="instructor-role">Course Coordinator</div>
+                        <h3 class="instructor-name">Sreenath Manickom</h3>
+                        <ul>
+                            <li>4+ years leading GenAI project teams</li>
+                            <li>Former Engineering Lead at Volvo</li>
+                            <li>Expertise in QA, training, deployment strategies</li>
+                            <li>Enterprise client onboarding specialist</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-role">Lead Instructor</div>
+                        <h3 class="instructor-name">Sreekanth Sreedharan</h3>
+                        <ul>
+                            <li>6,000+ hours hands-on GenAI development</li>
+                            <li>Built 10+ production AI applications</li>
+                            <li>B.Tech CS & Engineering; MBA, IIM Ahmedabad</li>
+                            <li>Core architect of FRIDAYi enterprise platform</li>
+                            <li>Experience: TCS, eBay, Wipro, Azim Premji Foundation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="instructor-card">
+                        <div class="instructor-role">DevOps Instructor</div>
+                        <h3 class="instructor-name">Stallon Selvan</h3>
+                        <ul>
+                            <li>15+ years software engineering & cloud architecture</li>
+                            <li>Built consumer apps and SaaS platforms</li>
+                            <li>Cost optimization and reliability expert</li>
+                            <li>Technical team leadership at scale</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2 class="section-title">Schedule</h2>
+                </div>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Module</th>
+                            <th>Live Sessions</th>
+                            <th>Deliverables</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Essential AI Theory</td>
+                            <td>Tue & Thu, 7–10 PM IST</td>
+                            <td>Quiz 1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>RAG Applications</td>
+                            <td>Tue & Thu, 7–10 PM IST</td>
+                            <td>Lab 1, Mini-Project 1</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fine-Tuning LLMs</td>
+                            <td>Tue & Thu, 7–10 PM IST</td>
+                            <td>Lab 2</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>AI Agents</td>
+                            <td>Tue & Thu, 7–10 PM IST</td>
+                            <td>Lab 3</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>AI Agents (cont.)</td>
+                            <td>Review Sessions</td>
+                            <td>Mini-Project 2</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Capstone Integration</td>
+                            <td>Workshop + Demo Day</td>
+                            <td>Final Submission & Presentation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <h2 class="section-title">Assessment</h2>
+                </div>
+                <div class="assessment-grid">
+                    <div class="assessment-item">
+                        <div class="assessment-weight">15%</div>
+                        <div class="assessment-name">Module Quizzes</div>
+                        <div class="assessment-desc">5–10 MCQs per module</div>
+                    </div>
+                    <div class="assessment-item">
+                        <div class="assessment-weight">25%</div>
+                        <div class="assessment-name">Lab Submissions</div>
+                        <div class="assessment-desc">Notebook + API demos</div>
+                    </div>
+                    <div class="assessment-item">
+                        <div class="assessment-weight">30%</div>
+                        <div class="assessment-name">Mini-Projects</div>
+                        <div class="assessment-desc">RAG + Agent systems</div>
+                    </div>
+                    <div class="assessment-item">
+                        <div class="assessment-weight">30%</div>
+                        <div class="assessment-name">Capstone</div>
+                        <div class="assessment-desc">End-to-end workflow</div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>Pass Criterion:</strong> ≥70% overall with all labs submitted<br>
+                    <strong>Attendance:</strong> ≥80% live sessions required for certification
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">08</span>
+                    <h2 class="section-title">Grading Scale</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>A (90–100)</h3>
+                        <p>Exceptional insight, robust deployment, clean code</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>B (80–89)</h3>
+                        <p>Functional systems, minor optimization gaps</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>C (70–79)</h3>
+                        <p>Core objectives met, basic deployment</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Incomplete</h3>
+                        <p>Missing labs or capstone project</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">09</span>
+                    <h2 class="section-title">Resources Provided</h2>
+                </div>
+                <ul class="list-items">
+                    <li>Google Colab Pro with GPU runtime (16 GB RAM)</li>
+                    <li>Private GitHub repository with starter code and datasets</li>
+                    <li>Render/RunPod deployment credits ($50 per learner)</li>
+                    <li>Complete course materials and technical documentation</li>
+                    <li>Private Slack workspace for collaboration and support</li>
+                    <li>Weekly office hours (2×1 hour) with instructors</li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">10</span>
+                    <h2 class="section-title">Certification</h2>
+                </div>
+                <div class="badge-grid">
+                    <div class="badge">
+                        <div class="badge-icon">🎓</div>
+                        <h3>Digital Certificate</h3>
+                        <p>Issued upon ≥70% completion</p>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">⚡</div>
+                        <h3>Professional Badge</h3>
+                        <p>Credly-verified "AI Engineering Practitioner"</p>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">📊</div>
+                        <h3>Detailed Transcript</h3>
+                        <p>Module-wise grades and project portfolio</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">11</span>
+                    <h2 class="section-title">Prerequisites</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Python</h3>
+                        <p>Intermediate programming proficiency</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>APIs & Git</h3>
+                        <p>Basic REST API and version control knowledge</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Linux</h3>
+                        <p>Command line familiarity</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Hardware</h3>
+                        <p>GPU-enabled environment provided</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">12</span>
+                    <h2 class="section-title">Course Policies</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Code of Conduct</h3>
+                        <p>Respectful collaboration, zero plagiarism tolerance</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>AI Use</h3>
+                        <p>Permitted for debugging; citation required in submissions</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Late Policy</h3>
+                        <p>-10% per day, maximum 3 days</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Support SLA</h3>
+                        <p>48-hour response time on Slack</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-content">
+                <h3>Ready to Transform Your Career?</h3>
+                <p>Join a cohort of experienced IT professionals mastering AI engineering for production environments.</p>
+                <div class="footer-accent">AI ENGINEERING PRACTITIONER PROGRAM</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">Curriculum</h2>
+                </div>
+                
+                <div class="module">
+                    <div class="module-header">
+                        <h3 class="module-title">Module 1: Essential AI Theory for Practitioners</h3>
+                        <div class="module-meta">
+                            <span class="meta-item">3 days (9 hours)</span>
+                            <span class="meta-item">4 live + 5 self-paced</span>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Core Topics</h4>
+                        <ul>
+                            <li>LLM lifecycle: pre-training → fine-tuning → inference</li>
+                            <li>RAG fundamentals: retrieval + generation patterns</li>
+                            <li>Agent architecture: model + tools + memory + output</li>
+                            <li>Multi-agent patterns and orchestration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Hands-on Labs</h4>
+                        <ul>
+                            <li>Run 7B LLM and examine token probabilities</li>
+                            <li>Query vector database with live documents</li>
+                            <li>Build simple Pydantic AI agent with tools</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="module">
+                    <div class="module-header">
+                        <h3 class="module-title">Module 2: Building RAG Applications</h3>
+                        <div class="module-meta">
+                            <span class="meta-item">1.5 weeks (24 hours)</span>
+                            <span class="meta-item">9 live + 15 self-paced</span>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Core Topics</h4>
+                        <ul>
+                            <li>RAG pipeline: Load → Chunk → Embed → Index → Retrieve → Generate</li>
+                            <li>Embeddings and vector search with FAISS</li>
+                            <li>Context assembly and prompt engineering</li>
+                            <li>API development with FastAPI and evaluation metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Hands-on Labs</h4>
+                        <ul>
+                            <li>Build document ingestion pipeline for 20 PDFs</li>
+                            <li>Implement metadata filtering (dept, date ranges)</li>
+                            <li>Create RAG API with citation tracking</li>
+                            <li>Deploy to Render/Railway with production testing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="module">
+                    <div class="module-header">
+                        <h3 class="module-title">Module 3: Fine-Tuning LLMs</h3>
+                        <div class="module-meta">
+                            <span class="meta-item">1 week (16 hours)</span>
+                            <span class="meta-item">6 live + 10 self-paced</span>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Core Topics</h4>
+                        <ul>
+                            <li>IBM Granite 8B: enterprise-safe, Apache 2.0 licensed</li>
+                            <li>Efficient fine-tuning with LoRA and QLoRA (4-bit)</li>
+                            <li>Inference server deployment with vLLM</li>
+                            <li>Model quantization for production environments</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Hands-on Labs</h4>
+                        <ul>
+                            <li>Fine-tune Granite 8B on 500 support tickets</li>
+                            <li>Benchmark base vs. fine-tuned performance</li>
+                            <li>Deploy inference API with monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="module">
+                    <div class="module-header">
+                        <h3 class="module-title">Module 4: Building AI Agents</h3>
+                        <div class="module-meta">
+                            <span class="meta-item">1.5 weeks (24 hours)</span>
+                            <span class="meta-item">9 live + 15 self-paced</span>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Core Topics</h4>
+                        <ul>
+                            <li>Pydantic AI fundamentals: type-safe agent design</li>
+                            <li>Single-agent patterns: ReAct loops with memory</li>
+                            <li>Multi-agent orchestration: handoff and dependencies</li>
+                            <li>Production deployment: tracing, safety, monitoring</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>Hands-on Labs</h4>
+                        <ul>
+                            <li>Build support agent with 3 tools (search, escalate, summarize)</li>
+                            <li>Create 2-agent system with handoff patterns</li>
+                            <li>Deploy agent API with concurrent request handling</li>
+                            <li>Multi-agent IT helpdesk: triage → resolve → notify</li>
+                        </ul>
+                    </div>
+                </div>

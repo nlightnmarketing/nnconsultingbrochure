@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Reskilling Training — NLightN Consulting</title>
+    <meta name="description" content="An intensive 6-week program that transforms experienced IT professionals into AI engineers — from theory to deployment.">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site.css">
+    <style>
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .training-card {
+            padding: 32px 28px;
+            border: 1px solid var(--gray-200);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .training-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .training-card-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .training-card-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .outcomes-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .outcomes-list li {
+            padding: 14px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .outcomes-list li:last-child {
+            border-bottom: none;
+        }
+
+        .outcomes-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gray-400);
+        }
+
+        .curriculum-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0;
+            margin-top: 40px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .curriculum-item {
+            padding: 28px 24px;
+            border-right: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .curriculum-item:last-child {
+            border-right: none;
+        }
+
+        .curriculum-week {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .curriculum-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .instructor-card {
+            padding: 32px 28px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .instructor-role {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+
+        .instructor-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .instructor-card p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .curriculum-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .curriculum-item {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<div class="container">
+    <section class="hero" style="padding-bottom: 60px;">
+        <p class="section-label">Professional Development Program</p>
+        <h1 class="hero-title">AI Reskilling for<br>IT Professionals</h1>
+        <p class="hero-sub">An intensive, production-focused program that transforms experienced IT professionals into AI engineers — from theory to deployment in six weeks.</p>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Overview</p>
+        <h2 class="section-title">What You'll Master</h2>
+        <p class="section-subtitle">Master practical AI engineering through hands-on experience with fine-tuned LLMs, RAG systems, and autonomous agents. Build production-ready solutions designed for immediate impact in enterprise environments.</p>
+
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-card-label">Duration</div>
+                <div class="training-card-value">6 Weeks, Part-Time</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Total Hours</div>
+                <div class="training-card-value">96 Hours (36 Live + 60 Self-Paced)</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Format</div>
+                <div class="training-card-value">Hybrid: Live Sessions + Hands-On Labs</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Weekly Load</div>
+                <div class="training-card-value">16 Hours per Week</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Who This Is For</p>
+        <h2 class="section-title">Built for Mid-Career Professionals</h2>
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-card-label">Experience</div>
+                <div class="training-card-value">IT professionals with 5+ years in the field</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Current Roles</div>
+                <div class="training-card-value">Software engineers, sysadmins, data analysts</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Career Trajectory</div>
+                <div class="training-card-value">Technical leads transitioning to AI/ML</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Prerequisites</div>
+                <div class="training-card-value">Python proficiency, Linux familiarity, basic REST API &amp; Git knowledge</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Outcomes</p>
+        <h2 class="section-title">What You'll Be Able to Do</h2>
+        <ul class="outcomes-list">
+            <li>Architect and explain core AI/ML concepts and LLM architectures</li>
+            <li>Fine-tune open-source LLMs on domain-specific datasets</li>
+            <li>Deploy scalable inference servers with comprehensive monitoring</li>
+            <li>Build production-grade RAG systems with vector databases</li>
+            <li>Design and implement goal-oriented AI agents</li>
+            <li>Integrate AI components into enterprise workflows</li>
+        </ul>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Curriculum</p>
+        <h2 class="section-title">Six Weeks, Four Modules</h2>
+        <p class="section-subtitle">Each module combines live instruction with hands-on labs and a real deliverable.</p>
+
+        <div class="curriculum-strip">
+            <div class="curriculum-item">
+                <div class="curriculum-week">Week 1</div>
+                <div class="curriculum-name">Essential AI Theory for Practitioners</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Weeks 2–3</div>
+                <div class="curriculum-name">Building RAG Applications</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Week 3–4</div>
+                <div class="curriculum-name">Fine-Tuning LLMs</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Weeks 4–5</div>
+                <div class="curriculum-name">Building AI Agents</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Week 6</div>
+                <div class="curriculum-name">Capstone Integration &amp; Demo Day</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Instructors</p>
+        <h2 class="section-title">Learn from Practitioners</h2>
+        <div class="instructors-grid">
+            <div class="instructor-card">
+                <div class="instructor-role">Course Coordinator</div>
+                <div class="instructor-name">Sreenath Manickom</div>
+                <p>4+ years leading GenAI project teams. Former Engineering Lead at Volvo. Expertise in QA, training, and enterprise client onboarding.</p>
+            </div>
+            <div class="instructor-card">
+                <div class="instructor-role">Lead Instructor</div>
+                <div class="instructor-name">Sreekanth Sreedharan</div>
+                <p>6,000+ hours hands-on GenAI development. Built 10+ production AI applications. Core architect of FRIDAYi enterprise platform.</p>
+            </div>
+            <div class="instructor-card">
+                <div class="instructor-role">DevOps Instructor</div>
+                <div class="instructor-name">Stallon Selvan</div>
+                <p>15+ years software engineering &amp; cloud architecture. Cost optimization and reliability expert. Technical team leadership at scale.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Certification</p>
+        <h2 class="section-title">What You Earn</h2>
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-card-label">Digital Certificate</div>
+                <div class="training-card-value">Issued upon successful completion</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Professional Badge</div>
+                <div class="training-card-value">Credly-verified "AI Engineering Practitioner"</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Detailed Transcript</div>
+                <div class="training-card-value">Module-wise grades and project portfolio</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="dark-section">
+    <div class="container" style="text-align: center;">
+        <p class="section-label">Ready to Transform Your Career?</p>
+        <h2 class="section-title" style="color: #fff; max-width: 700px; margin: 0 auto 20px;">Join the Next Cohort</h2>
+        <p class="section-subtitle" style="color: var(--gray-400); margin: 0 auto 36px; max-width: 560px;">Reach out to learn about upcoming batches, pricing, and how this program can fit your schedule.</p>
+        <a href="/reach-out/" class="btn btn-white">Get in Touch</a>
+    </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="/components.js"></script>
+</body>
+</html>

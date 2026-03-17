@@ -17,6 +17,7 @@
         { label: 'About', href: '/about/' },
         { label: 'Services', href: '/services/' },
         { label: 'Work', href: '/work/' },
+        { label: 'Training', href: '/training/' },
         { label: 'Reach Out', href: '/reach-out/' }
     ];
 
