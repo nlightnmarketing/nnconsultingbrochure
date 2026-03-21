@@ -453,6 +453,9 @@ img {
 .portfolio-item {
     border: 1px solid var(--gray-200);
     transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .portfolio-item:hover {
@@ -466,16 +469,15 @@ img {
 
 .portfolio-item .screenshot-img {
     width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: contain;
-    object-position: center;
-    background: var(--gray-100);
+    height: auto;
     display: block;
+    flex-shrink: 0;
     border-bottom: 1px solid var(--gray-200);
 }
 
 .portfolio-body {
     padding: 24px;
+    flex: 1;
 }
 
 .portfolio-badge {
