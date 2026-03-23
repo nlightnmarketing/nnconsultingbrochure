@@ -1,5 +1,5 @@
 (function () {
-    var _u = 'sreekanth.sreedharan';
+    var _u = 'info';
     var _d = 'nlightn.in';
     var _ph = ['+91', '97312', '96263'];
     function _email() { return _u + '@' + _d; }
