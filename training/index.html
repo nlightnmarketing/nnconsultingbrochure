@@ -141,6 +141,72 @@
             line-height: 1.6;
         }
 
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+            align-items: stretch;
+        }
+
+        .testimonial-card {
+            display: flex;
+            gap: 22px;
+            padding: 28px 26px;
+            border: 1px solid var(--gray-200);
+            background: var(--paper);
+        }
+
+        .testimonial-photo {
+            flex-shrink: 0;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--gray-200);
+        }
+
+        .testimonial-body {
+            min-width: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: var(--gray-700);
+            margin: 0 0 14px;
+        }
+
+        .testimonial-quote::before {
+            content: '\201C';
+            color: var(--gray-400);
+        }
+
+        .testimonial-quote::after {
+            content: '\201D';
+            color: var(--gray-400);
+        }
+
+        .testimonial-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
         .lead-form-section {
             background: var(--gray-50);
             border-top: 1px solid var(--gray-200);
@@ -367,6 +433,31 @@
                 <div class="instructor-name">Stallon Selvan</div>
                 <p>15+ years software engineering &amp; cloud architecture. Cost optimization and reliability expert. Technical team leadership at scale.</p>
             </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Alumni Voices</p>
+        <h2 class="section-title">What Past Participants Say</h2>
+        <p class="section-subtitle">Reflections from professionals who trained with NLightN.</p>
+
+        <div class="testimonials-grid">
+            <article class="testimonial-card">
+                <img class="testimonial-photo" src="/assets/vishal.jpg" width="96" height="96" alt="Vishal">
+                <div class="testimonial-body">
+                    <p class="testimonial-quote">During my time at NLightN, I had the opportunity to work with emerging technologies that were quite new to the industry at the time. This exposure contributed significantly to my growth as a Software Engineer.</p>
+                    <p class="testimonial-name">Vishal</p>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <img class="testimonial-photo" src="/assets/jawed.jpg" width="96" height="96" alt="Jawed">
+                <div class="testimonial-body">
+                    <p class="testimonial-quote">My time at NLightN was truly valuable in shaping my technical skills and professional mindset. I had the opportunity to work on real-world projects, which helped me strengthen my understanding of development practices and problem-solving. The team was very supportive and approachable, making it easy to learn and grow.</p>
+                    <p class="testimonial-name">Jawed</p>
+                </div>
+            </article>
         </div>
     </section>
 </div>
