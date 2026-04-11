@@ -98,5 +98,21 @@
                 links.classList.toggle('open');
             });
         }
+
+        var sourceUrl = document.referrer;
+        window.myScriptData = {
+            botId: 'dba4a2f5852144cfa9421e6b774d0187',
+            API_BASE_URL: 'https://api.fridayi.com',
+            SOURCE_URL: sourceUrl
+        };
+
+        (function (w, d, s, f, js, fjs) {
+            js = d.createElement(s);
+            fjs = d.getElementsByTagName(s)[0];
+            js.async = 1;
+            js.src = f;
+            js.id = 'myWidgetScript';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(window, document, 'script', 'https://api.fridayi.com/api/v2' + '/popupbot/js-sales'));
     });
 })();
