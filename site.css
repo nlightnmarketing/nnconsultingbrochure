@@ -1379,3 +1379,196 @@ img {
 @media print {
     .hero-art, .offer-art, .mindmap-wrap, .flow { display: none !important; }
 }
+
+/* ═══ PALETTE PASS: retire the black — white chrome, cobalt actions, night-blue footer ═══ */
+
+.site-nav {
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.nav-logo { color: var(--ink); }
+.nav-logo::after {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--yellow);
+    margin-left: 3px;
+}
+
+.nav-links a { color: var(--gray-600); position: relative; }
+.nav-links a:hover { color: var(--blue); }
+.nav-links a.active { color: var(--ink); }
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--blue);
+}
+
+.nav-toggle span { background: var(--ink); }
+
+@media (max-width: 768px) {
+    .nav-links {
+        background: var(--paper);
+        border-top: 1px solid var(--gray-200);
+        border-bottom: 1px solid var(--gray-200);
+    }
+    .nav-links a.active::after { right: auto; width: 24px; }
+}
+
+/* Buttons */
+.btn-primary,
+.tier-card.featured .btn-white {
+    background: var(--blue);
+    color: var(--paper);
+    border-color: var(--blue);
+}
+
+.btn-primary:hover,
+.tier-card.featured .btn-white:hover {
+    background: #1a3fc4;
+    border-color: #1a3fc4;
+    color: var(--paper);
+}
+
+.btn-outline:hover {
+    background: var(--blue-tint);
+    color: var(--blue);
+    border-color: var(--blue);
+}
+
+/* Highlighted pricing cards: blue tint instead of black */
+.tier-card.featured {
+    background: linear-gradient(180deg, var(--blue-tint), var(--paper) 85%);
+    color: var(--ink);
+    border: 2px solid var(--blue);
+    position: relative;
+    z-index: 1;
+}
+
+.tier-card.featured .tier-name { color: var(--blue); }
+.tier-card.featured .tier-desc,
+.tier-card.featured .tier-list li { color: var(--gray-600); }
+.tier-card.featured .tier-meta,
+.tier-card.featured .price-usd { color: var(--gray-500); }
+.tier-card.featured .tier-price { color: var(--blue); }
+
+/* Footer joins the starry night above it */
+.site-footer {
+    background: #0b1640;
+    color: #8c9bd0;
+    border-top: 1px solid rgba(143, 168, 255, 0.15);
+}
+
+.footer-inner a { color: #c9d3f7; }
+.footer-inner a:hover { color: var(--yellow); }
+
+/* Cards sitting on the starry night (About → The Team) */
+.dark-section .portfolio-item {
+    border-color: rgba(143, 168, 255, 0.28) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.dark-section .portfolio-body {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.dark-section .portfolio-item:hover {
+    border-color: var(--yellow) !important;
+    box-shadow: 0 10px 34px rgba(255, 190, 26, 0.12);
+}
+
+.dark-section .portfolio-desc { color: #c9d3f7; }
+.dark-section .section-label { color: #8fa8ff; }
+.dark-section .section-label::before { background: var(--yellow); }
+
+/* ═══ VAN GOGH PASS: canvas grain, brush swashes, painted dividers ═══ */
+
+body {
+    background-color: var(--paper);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .14  0 0 0 0 .2  0 0 0 0 .5  0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Painted swash under every page headline */
+.hero-title::after,
+.contact-hero .hero-title::after {
+    content: '';
+    display: block;
+    width: min(240px, 60%);
+    height: 20px;
+    margin-top: 14px;
+    background: url('/assets/viz/swash.svg') left center / 100% 100% no-repeat;
+}
+
+/* Brush dabs instead of flat ticks on section labels */
+.section-label::before {
+    width: 26px;
+    height: 9px;
+    border-radius: 0;
+    background: url('/assets/viz/dab-blue.svg') center / 100% 100% no-repeat;
+    transform: translateY(-1px) rotate(-4deg);
+}
+.offer-band.featured-band .section-label::before,
+.lead-form-wrap .section-label::before { background: url('/assets/viz/dab-red.svg') center / 100% 100% no-repeat; }
+.dark-section .section-label::before { background: url('/assets/viz/dab-yellow.svg') center / 100% 100% no-repeat; }
+
+/* Painted dividers instead of hairlines */
+.section + .section,
+.offer-band,
+.offer-band.featured-band {
+    border-top: none !important;
+    background-image: url('/assets/viz/brush-rule.svg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: min(1120px, 92%) 10px;
+}
+.offer-band.featured-band {
+    background-image:
+        url('/assets/viz/brush-rule.svg'),
+        radial-gradient(1200px 400px at 85% 0%, var(--blue-tint), transparent 70%),
+        radial-gradient(600px 300px at 0% 100%, var(--yellow-tint), transparent 70%);
+    background-size: min(1120px, 92%) 10px, auto, auto;
+    background-position: center top, 0 0, 0 0;
+    border-bottom: none;
+}
+.hero {
+    border-bottom: none;
+    background: url('/assets/viz/brush-rule.svg') center bottom / 100% 10px no-repeat;
+}
+
+/* Hand-made shapes: slightly irregular corners like cut paper */
+.flow-node { border-radius: 20px 14px 22px 12px / 14px 22px 12px 20px; }
+.flow-icon { border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; }
+.tier-card.featured { border-radius: 4px 10px 6px 12px; }
+.btn { border-radius: 3px 6px 4px 7px; }
+
+/* Mindmap halo turns slowly, like a star in the night sky */
+.vg-spin { transform-box: view-box; animation: viz-spin 90s linear infinite; }
+@keyframes viz-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .vg-spin { animation: none; } }
+
+/* Van Gogh pass — tuning */
+body {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .14  0 0 0 0 .2  0 0 0 0 .5  0 0 0 .028 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.dark-section {
+    background:
+        radial-gradient(ellipse 46% 62% at 50% 50%, rgba(15, 29, 82, 0.82) 0%, rgba(15, 29, 82, 0.55) 55%, rgba(15, 29, 82, 0) 100%),
+        url('/assets/viz/starry.svg') center / cover no-repeat,
+        var(--night);
+}
+.dark-section .section-subtitle { color: #dbe3ff !important; }
+.dark-section .section-title { text-shadow: 0 2px 18px rgba(8, 16, 50, 0.6); }
