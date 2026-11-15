@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="A pitch deck, a research report and a meeting pack">
+<style>
+.d{stroke-dasharray:1;stroke-dashoffset:1;animation:d 2.6s cubic-bezier(.65,0,.35,1) forwards}
+.s{transform-box:fill-box;transform-origin:center;animation:t 3.2s ease-in-out infinite}
+.f{animation:f 7s ease-in-out infinite}
+@keyframes d{to{stroke-dashoffset:0}}
+@keyframes t{50%{opacity:.35;transform:scale(.65)}}
+@keyframes f{50%{transform:translateY(-8px)}}
+@keyframes r{to{transform:rotate(360deg)}}
+@keyframes g{0%,12%{transform:scaleY(.15)}35%,85%{transform:scaleY(1)}100%{transform:scaleY(.15)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;stroke-dashoffset:0!important}}
+</style>
+<circle cx="250" cy="190" r="160" fill="#eef2ff" opacity=".7"/>
+<g class="f" style="animation-delay:-2s"><g transform="rotate(7 350 110)">
+<rect x="262" y="36" width="180" height="150" rx="12" fill="#ffedeb" stroke="#f0453a" stroke-width="2"/>
+<rect x="262" y="36" width="180" height="30" rx="12" fill="#f0453a"/><rect x="262" y="54" width="180" height="12" fill="#f0453a"/>
+<circle cx="286" cy="92" r="8" fill="#fff" stroke="#f0453a" stroke-width="2"/><path d="M282 92 l3 3 l5 -6" fill="none" stroke="#f0453a" stroke-width="2" stroke-linecap="round"/>
+<rect x="304" y="88" width="110" height="8" rx="4" fill="#f7b7b2"/>
+<circle cx="286" cy="122" r="8" fill="#fff" stroke="#f0453a" stroke-width="2"/><path d="M282 122 l3 3 l5 -6" fill="none" stroke="#f0453a" stroke-width="2" stroke-linecap="round"/>
+<rect x="304" y="118" width="92" height="8" rx="4" fill="#f7b7b2"/>
+<circle cx="286" cy="152" r="8" fill="#fff" stroke="#f0453a" stroke-width="2"/><path d="M282 152 l3 3 l5 -6" fill="none" stroke="#f0453a" stroke-width="2" stroke-linecap="round"/>
+<rect x="304" y="148" width="74" height="8" rx="4" fill="#f7b7b2"/>
+</g></g>
+<g class="f" style="animation-delay:-4s"><g transform="rotate(-7 125 150)">
+<rect x="36" y="40" width="170" height="220" rx="12" fill="#fff7df" stroke="#e0a100" stroke-width="2"/>
+<rect x="56" y="64" width="90" height="12" rx="6" fill="#3a3a3a"/>
+<rect x="56" y="92" width="130" height="7" rx="3.5" fill="#f1d27a"/>
+<rect x="56" y="110" width="108" height="7" rx="3.5" fill="#f1d27a"/>
+<rect x="56" y="128" width="86" height="7" rx="3.5" fill="#f1d27a"/>
+<rect x="56" y="146" width="130" height="7" rx="3.5" fill="#f1d27a"/>
+<rect x="56" y="164" width="108" height="7" rx="3.5" fill="#f1d27a"/>
+<rect x="56" y="182" width="86" height="7" rx="3.5" fill="#f1d27a"/>
+<rect x="56" y="200" width="130" height="7" rx="3.5" fill="#f1d27a"/>
+<rect x="56" y="218" width="108" height="7" rx="3.5" fill="#f1d27a"/>
+</g></g>
+<g class="f">
+<rect x="112" y="128" width="290" height="190" rx="14" fill="#fff" stroke="#2353e8" stroke-width="2.5"/>
+<rect x="136" y="150" width="120" height="12" rx="6" fill="#1a1a1a"/><rect x="136" y="170" width="80" height="7" rx="3.5" fill="#c9d3f7"/>
+<line x1="136" y1="296" x2="378" y2="296" stroke="#d4d4d4" stroke-width="2"/>
+<rect x="150" y="244" width="30" height="52" rx="5" fill="#2353e8" style="transform-box:fill-box;transform-origin:bottom;animation:g 6s ease-in-out infinite;animation-delay:0.00s"/>
+<rect x="196" y="212" width="30" height="84" rx="5" fill="#ffbe1a" style="transform-box:fill-box;transform-origin:bottom;animation:g 6s ease-in-out infinite;animation-delay:0.15s"/>
+<rect x="242" y="232" width="30" height="64" rx="5" fill="#f0453a" style="transform-box:fill-box;transform-origin:bottom;animation:g 6s ease-in-out infinite;animation-delay:0.30s"/>
+<rect x="288" y="192" width="30" height="104" rx="5" fill="#2353e8" style="transform-box:fill-box;transform-origin:bottom;animation:g 6s ease-in-out infinite;animation-delay:0.45s"/>
+<rect x="334" y="204" width="30" height="92" rx="5" fill="#ffbe1a" style="transform-box:fill-box;transform-origin:bottom;animation:g 6s ease-in-out infinite;animation-delay:0.60s"/>
+<path class="d" pathLength="1" d="M165 236 L211 206 L257 226 L303 180 L349 190" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation-delay:.6s"/>
+</g>
+<path class="s" style="animation-delay:0.0s" d="M430 218 Q432.16 227.84 442 230 Q432.16 232.16 430 242 Q427.84 232.16 418 230 Q427.84 227.84 430 218Z" fill="#ffbe1a"/>
+<path class="s" style="animation-delay:-0.8s" d="M90 291 Q91.62 298.38 99 300 Q91.62 301.62 90 309 Q88.38 301.62 81 300 Q88.38 298.38 90 291Z" fill="#f0453a"/>
+<path class="s" style="animation-delay:-1.6s" d="M226 14 Q227.8 22.2 236 24 Q227.8 25.8 226 34 Q224.2 25.8 216 24 Q224.2 22.2 226 14Z" fill="#2353e8"/>
+</svg>

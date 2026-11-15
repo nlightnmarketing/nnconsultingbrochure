@@ -83,6 +83,49 @@
         }
     }
 
+    document.documentElement.classList.add('js');
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function whenVisible(els, cb) {
+        if (!('IntersectionObserver' in window)) {
+            for (var i = 0; i < els.length; i++) cb(els[i]);
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    cb(e.target);
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        for (var j = 0; j < els.length; j++) io.observe(els[j]);
+    }
+
+    function revealVisuals() {
+        whenVisible(document.querySelectorAll('.viz'), function (el) {
+            el.classList.add('in-view');
+        });
+    }
+
+    function countUp() {
+        if (reduceMotion) return;
+        whenVisible(document.querySelectorAll('[data-count]'), function (el) {
+            var target = parseInt(el.getAttribute('data-count'), 10);
+            var start = null;
+            var dur = 1400;
+            function step(ts) {
+                if (!start) start = ts;
+                var p = Math.min((ts - start) / dur, 1);
+                var eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(target * eased).toLocaleString('en-US');
+                if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         var headerEl = document.getElementById('site-header');
         var footerEl = document.getElementById('site-footer');
@@ -91,6 +134,8 @@
         if (footerEl) footerEl.outerHTML = buildFooter();
 
         hydratePlaceholders();
+        revealVisuals();
+        countUp();
 
         var toggle = document.querySelector('.nav-toggle');
         var links = document.querySelector('.nav-links');
