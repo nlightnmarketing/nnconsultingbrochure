@@ -855,3 +855,151 @@ img {
     .section { padding: 30px 0; }
     * { animation: none !important; }
 }
+
+/* ─── PRICING HELPERS ─── */
+
+.price-usd {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--gray-500);
+    margin-left: 4px;
+}
+
+.tier-card.featured .price-usd {
+    color: var(--gray-400);
+}
+
+.fine-print {
+    font-size: 0.95rem;
+    color: var(--gray-500);
+    margin-top: 20px;
+}
+
+.tier-list {
+    list-style: none;
+    margin: 0 0 24px;
+}
+
+.tier-list li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--gray-600);
+}
+
+.tier-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gray-400);
+}
+
+.tier-card.featured .tier-list li {
+    color: var(--gray-400);
+}
+
+/* ─── FULL-WIDTH OFFER BANDS (home) ─── */
+
+.offer-band {
+    padding: 80px 0;
+    border-top: 1px solid var(--gray-200);
+}
+
+.offer-band.dark {
+    background: var(--ink);
+    color: var(--paper);
+    border-top: none;
+    padding: 110px 0;
+}
+
+.offer-band-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.offer-band-text {
+    flex: 1 1 520px;
+    max-width: 720px;
+}
+
+.offer-band .offer-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.offer-band.dark .offer-title {
+    font-size: 3.2rem;
+}
+
+.offer-band p.offer-desc {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--gray-600);
+}
+
+.offer-band.dark p.offer-desc {
+    color: var(--gray-400);
+}
+
+.offer-band.dark .section-label {
+    color: var(--gray-500);
+}
+
+.offer-band-price {
+    flex: 0 0 auto;
+    text-align: left;
+}
+
+.offer-band .offer-price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.offer-band.dark .offer-price {
+    font-size: 3rem;
+}
+
+.offer-band .tier-meta {
+    margin-bottom: 4px;
+}
+
+.offer-band.dark .tier-meta {
+    color: var(--gray-400);
+}
+
+.offer-band.dark .price-usd {
+    color: var(--gray-400);
+}
+
+.offer-steps {
+    list-style: none;
+    margin: 24px 0 0;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--gray-400);
+}
+
+.work-glimpse-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .offer-band, .offer-band.dark { padding: 60px 0; }
+    .offer-band .offer-title, .offer-band.dark .offer-title { font-size: 2rem; }
+    .offer-band-inner { gap: 32px; }
+}

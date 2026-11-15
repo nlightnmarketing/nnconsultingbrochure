@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H13DHFCGS5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-H13DHFCGS5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/Nlightn%20Logo%20Violet.png" type="image/png">
+    <title>Decks & Documents Made For You — NLightN Consulting</title>
+    <meta name="description" content="Pitch decks, research reports and meeting packs, made for you. From ₹1,500 ($19) per deliverable. For managers, founders, NGOs and professional teams.">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site.css">
+    <style>
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .training-card {
+            padding: 32px 28px;
+            border: 1px solid var(--gray-200);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .training-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .training-card-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .training-card-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .outcomes-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .outcomes-list li {
+            padding: 14px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .outcomes-list li:last-child {
+            border-bottom: none;
+        }
+
+        .outcomes-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gray-400);
+        }
+
+        .curriculum-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0;
+            margin-top: 40px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .curriculum-item {
+            padding: 28px 24px;
+            border-right: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .curriculum-item:last-child {
+            border-right: none;
+        }
+
+        .curriculum-week {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .curriculum-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .instructor-card {
+            padding: 32px 28px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .instructor-role {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+
+        .instructor-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .instructor-card p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+            align-items: stretch;
+        }
+
+        .testimonial-card {
+            display: flex;
+            gap: 22px;
+            padding: 28px 26px;
+            border: 1px solid var(--gray-200);
+            background: var(--paper);
+        }
+
+        .testimonial-photo {
+            flex-shrink: 0;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--gray-200);
+        }
+
+        .testimonial-body {
+            min-width: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: var(--gray-700);
+            margin: 0 0 14px;
+        }
+
+        .testimonial-quote::before {
+            content: '\201C';
+            color: var(--gray-400);
+        }
+
+        .testimonial-quote::after {
+            content: '\201D';
+            color: var(--gray-400);
+        }
+
+        .testimonial-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .lead-form-section {
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            padding: 80px 0;
+        }
+
+        .lead-form-wrap {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .lead-form-wrap .section-label,
+        .lead-form-wrap .section-title {
+            text-align: center;
+        }
+
+        .lead-form-wrap .section-subtitle {
+            text-align: center;
+            margin: 0 auto 40px;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            border: 1px solid var(--gray-300);
+            background: var(--paper);
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-field input:focus {
+            border-color: var(--ink);
+        }
+
+        .form-field input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .lead-form .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: 8px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .form-msg {
+            text-align: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            padding: 16px;
+            display: none;
+        }
+
+        .form-msg.success {
+            display: block;
+            color: #1a7f37;
+            background: #dafbe1;
+            border: 1px solid #acdebf;
+        }
+
+        .form-msg.error {
+            display: block;
+            color: #9a2c2c;
+            background: #fde8e8;
+            border: 1px solid #f0b8b8;
+        }
+
+        @media (max-width: 768px) {
+            .curriculum-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .curriculum-item {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<div class="container">
+    <section class="hero" style="padding-bottom: 60px;">
+        <p class="section-label">Decks &amp; Documents</p>
+        <h1 class="hero-title">Your Deck. Your Report.<br>Done For You.</h1>
+        <p class="hero-sub">Tell us what you need to present, pitch or decide. We use AI to research and draft, and a person to review, so you get polished, editable files you can use straight away.</p>
+        <div style="margin-top: 36px;">
+            <a href="#register" class="btn btn-primary">Tell Us What You Need</a>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section" style="border-top: none; padding-top: 0;">
+        <p class="section-label">Packages</p>
+        <h2 class="section-title">Pick What You Need</h2>
+        <p class="section-subtitle">Priced per deliverable, so you only pay for what you use.</p>
+
+        <div class="tiers-grid">
+            <div class="tier-card">
+                <p class="tier-name">Pitch</p>
+                <h3 class="tier-headline">Pitch Decks</h3>
+                <p class="tier-desc">Investor, sales, partnership and grant pitches with a clear story and clean design.</p>
+                <ul class="tier-list">
+                    <li>Story and slide structure</li>
+                    <li>Designed, editable slides</li>
+                    <li>Speaker notes on request</li>
+                </ul>
+                <p class="tier-meta">From, per deck</p>
+                <p class="tier-price">₹6,000 <span class="price-usd">($78)</span></p>
+                <div class="tier-cta">
+                    <a href="#register" class="btn btn-outline" style="width: 100%; text-align: center;">Get Started</a>
+                </div>
+            </div>
+
+            <div class="tier-card featured">
+                <p class="tier-name">Research</p>
+                <h3 class="tier-headline">Research Reports</h3>
+                <p class="tier-desc">Market, competitor and topic research, summarised so you can decide with confidence.</p>
+                <ul class="tier-list">
+                    <li>Researched and sourced</li>
+                    <li>Clear findings and takeaways</li>
+                    <li>Report or briefing deck</li>
+                </ul>
+                <p class="tier-meta">From, per report</p>
+                <p class="tier-price">₹4,000 <span class="price-usd">($52)</span></p>
+                <div class="tier-cta">
+                    <a href="#register" class="btn btn-white" style="width: 100%; text-align: center;">Get Started</a>
+                </div>
+            </div>
+
+            <div class="tier-card">
+                <p class="tier-name">Meeting</p>
+                <h3 class="tier-headline">Meeting Packs</h3>
+                <p class="tier-desc">Walk into every meeting prepared and leave with clear next steps.</p>
+                <ul class="tier-list">
+                    <li>Agenda and pre-read</li>
+                    <li>Talking points and questions</li>
+                    <li>Follow-up summary</li>
+                </ul>
+                <p class="tier-meta">From, per meeting</p>
+                <p class="tier-price">₹1,500 <span class="price-usd">($19)</span></p>
+                <div class="tier-cta">
+                    <a href="#register" class="btn btn-outline" style="width: 100%; text-align: center;">Get Started</a>
+                </div>
+            </div>
+        </div>
+        <p class="fine-print">Prices are in Indian rupees; dollar amounts in brackets are for international clients. Need this regularly? Ask about a monthly arrangement.</p>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Who It's For</p>
+        <h2 class="section-title">Made for People Who Are Busy</h2>
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-card-label">Managers</div>
+                <div class="training-card-value">Team updates, board packs and proposals</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Founders</div>
+                <div class="training-card-value">Investor decks and market research, without a design team</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">NGOs</div>
+                <div class="training-card-value">Grant pitches, impact reports and donor decks</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Professional firms and individuals</div>
+                <div class="training-card-value">Client presentations, briefs, and anything else you need to say well</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title">Simple and Quick</h2>
+        <div class="curriculum-strip">
+            <div class="curriculum-item">
+                <div class="curriculum-week">Step 1</div>
+                <div class="curriculum-name">Tell us what you need and who it's for</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Step 2</div>
+                <div class="curriculum-name">We research and draft with AI, and a person reviews it</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Step 3</div>
+                <div class="curriculum-name">You get editable files (PowerPoint, Word or PDF)</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div id="register" class="lead-form-section">
+    <div class="container">
+        <div class="lead-form-wrap">
+            <p class="section-label">Let's Get Started</p>
+            <h2 class="section-title">Tell Us What You Need</h2>
+            <p class="section-subtitle">Share your details and we'll get back to you with next steps.</p>
+
+            <form id="training-lead-form" class="lead-form" novalidate>
+                <div class="form-field">
+                    <label for="lead-name">Full Name</label>
+                    <input type="text" id="lead-name" name="name" placeholder="Jane Doe" required>
+                </div>
+                <div class="form-field">
+                    <label for="lead-email">Email Address</label>
+                    <input type="email" id="lead-email" name="email" placeholder="jane@example.com" required>
+                </div>
+                <div class="form-field">
+                    <label for="lead-phone">Mobile Number</label>
+                    <input type="tel" id="lead-phone" name="phone" placeholder="+91 98765 43210" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div id="form-msg" class="form-msg"></div>
+        </div>
+    </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="/components.js"></script>
+<script>
+(function () {
+    var form = document.getElementById('training-lead-form');
+    var msgEl = document.getElementById('form-msg');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msgEl.className = 'form-msg';
+        msgEl.style.display = 'none';
+
+        var name = form.name.value.trim();
+        var email = form.email.value.trim();
+        var phone = form.phone.value.trim();
+
+        if (!name || !email || !phone) {
+            showMsg('Please fill in all fields.', 'error');
+            return;
+        }
+
+        var btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Submitting…';
+        btn.disabled = true;
+
+        fetch('https://api.fridayi.com/api/v2/popupbot/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                bot_id: 'fec62ce883b44095a259c09303a95ecc',
+                name: name,
+                email: email,
+                phone: phone
+            })
+        })
+        .then(function (res) {
+            if (!res.ok) throw new Error('Request failed');
+            return res.json();
+        })
+        .then(function () {
+            form.style.display = 'none';
+            showMsg('Thanks, ' + name.split(' ')[0] + '! We\u2019ll be in touch soon.', 'success');
+        })
+        .catch(function () {
+            showMsg('Something went wrong. Please try again or email us directly.', 'error');
+            btn.textContent = 'Submit';
+            btn.disabled = false;
+        });
+    });
+
+    function showMsg(text, type) {
+        msgEl.textContent = text;
+        msgEl.className = 'form-msg ' + type;
+        msgEl.style.display = 'block';
+    }
+})();
+</script>
+</body>
+</html>

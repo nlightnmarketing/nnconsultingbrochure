@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H13DHFCGS5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-H13DHFCGS5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/Nlightn%20Logo%20Violet.png" type="image/png">
+    <title>AI Reskilling Training — NLightN Consulting</title>
+    <meta name="description" content="An intensive 6-week program that transforms experienced IT professionals into AI engineers — from theory to deployment.">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site.css">
+    <style>
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .training-card {
+            padding: 32px 28px;
+            border: 1px solid var(--gray-200);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .training-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .training-card-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .training-card-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .outcomes-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .outcomes-list li {
+            padding: 14px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .outcomes-list li:last-child {
+            border-bottom: none;
+        }
+
+        .outcomes-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gray-400);
+        }
+
+        .curriculum-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0;
+            margin-top: 40px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .curriculum-item {
+            padding: 28px 24px;
+            border-right: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .curriculum-item:last-child {
+            border-right: none;
+        }
+
+        .curriculum-week {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .curriculum-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .instructor-card {
+            padding: 32px 28px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .instructor-role {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+
+        .instructor-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .instructor-card p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+            align-items: stretch;
+        }
+
+        .testimonial-card {
+            display: flex;
+            gap: 22px;
+            padding: 28px 26px;
+            border: 1px solid var(--gray-200);
+            background: var(--paper);
+        }
+
+        .testimonial-photo {
+            flex-shrink: 0;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--gray-200);
+        }
+
+        .testimonial-body {
+            min-width: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: var(--gray-700);
+            margin: 0 0 14px;
+        }
+
+        .testimonial-quote::before {
+            content: '\201C';
+            color: var(--gray-400);
+        }
+
+        .testimonial-quote::after {
+            content: '\201D';
+            color: var(--gray-400);
+        }
+
+        .testimonial-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .lead-form-section {
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            padding: 80px 0;
+        }
+
+        .lead-form-wrap {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .lead-form-wrap .section-label,
+        .lead-form-wrap .section-title {
+            text-align: center;
+        }
+
+        .lead-form-wrap .section-subtitle {
+            text-align: center;
+            margin: 0 auto 40px;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            border: 1px solid var(--gray-300);
+            background: var(--paper);
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-field input:focus {
+            border-color: var(--ink);
+        }
+
+        .form-field input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .lead-form .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: 8px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .form-msg {
+            text-align: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            padding: 16px;
+            display: none;
+        }
+
+        .form-msg.success {
+            display: block;
+            color: #1a7f37;
+            background: #dafbe1;
+            border: 1px solid #acdebf;
+        }
+
+        .form-msg.error {
+            display: block;
+            color: #9a2c2c;
+            background: #fde8e8;
+            border: 1px solid #f0b8b8;
+        }
+
+        @media (max-width: 768px) {
+            .curriculum-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .curriculum-item {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<div class="container">
+    <section class="hero" style="padding-bottom: 60px;">
+        <p class="section-label">Professional Development Program</p>
+        <h1 class="hero-title">AI Reskilling for<br>IT Professionals</h1>
+        <p class="hero-sub">An intensive, production-focused program that transforms experienced IT professionals into AI engineers — from theory to deployment in six weeks.</p>
+        <div style="margin-top: 36px;">
+            <a href="#register" class="btn btn-primary">Register Your Interest</a>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Overview</p>
+        <h2 class="section-title">What You'll Master</h2>
+        <p class="section-subtitle">Master practical AI engineering through hands-on experience with fine-tuned LLMs, RAG systems, and autonomous agents. Build production-ready solutions designed for immediate impact in enterprise environments.</p>
+
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-card-label">Duration</div>
+                <div class="training-card-value">6 Weeks, Part-Time</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Total Hours</div>
+                <div class="training-card-value">96 Hours (36 Live + 60 Self-Paced)</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Format</div>
+                <div class="training-card-value">Hybrid: Live Sessions + Hands-On Labs</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Weekly Load</div>
+                <div class="training-card-value">16 Hours per Week</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Who This Is For</p>
+        <h2 class="section-title">Built for Mid-Career Professionals</h2>
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-card-label">Experience</div>
+                <div class="training-card-value">IT professionals with 5+ years in the field</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Current Roles</div>
+                <div class="training-card-value">Software engineers, sysadmins, data analysts</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Career Trajectory</div>
+                <div class="training-card-value">Technical leads transitioning to AI/ML</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Prerequisites</div>
+                <div class="training-card-value">Python proficiency, Linux familiarity, basic REST API &amp; Git knowledge</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Outcomes</p>
+        <h2 class="section-title">What You'll Be Able to Do</h2>
+        <ul class="outcomes-list">
+            <li>Architect and explain core AI/ML concepts and LLM architectures</li>
+            <li>Fine-tune open-source LLMs on domain-specific datasets</li>
+            <li>Deploy scalable inference servers with comprehensive monitoring</li>
+            <li>Build production-grade RAG systems with vector databases</li>
+            <li>Design and implement goal-oriented AI agents</li>
+            <li>Integrate AI components into enterprise workflows</li>
+        </ul>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Curriculum</p>
+        <h2 class="section-title">Six Weeks, Four Modules</h2>
+        <p class="section-subtitle">Each module combines live instruction with hands-on labs and a real deliverable.</p>
+
+        <div class="curriculum-strip">
+            <div class="curriculum-item">
+                <div class="curriculum-week">Week 1</div>
+                <div class="curriculum-name">Essential AI Theory for Practitioners</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Weeks 2–3</div>
+                <div class="curriculum-name">Building RAG Applications</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Week 3–4</div>
+                <div class="curriculum-name">Fine-Tuning LLMs</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Weeks 4–5</div>
+                <div class="curriculum-name">Building AI Agents</div>
+            </div>
+            <div class="curriculum-item">
+                <div class="curriculum-week">Week 6</div>
+                <div class="curriculum-name">Capstone Integration &amp; Demo Day</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Instructors</p>
+        <h2 class="section-title">Learn from Practitioners</h2>
+        <div class="instructors-grid">
+            <div class="instructor-card">
+                <div class="instructor-role">Course Coordinator</div>
+                <div class="instructor-name">Sreenath Manickom</div>
+                <p>4+ years leading GenAI project teams. Former Engineering Lead at Volvo. Expertise in QA, training, and enterprise client onboarding.</p>
+            </div>
+            <div class="instructor-card">
+                <div class="instructor-role">Lead Instructor</div>
+                <div class="instructor-name">Sreekanth Sreedharan</div>
+                <p>6,000+ hours hands-on GenAI development. Built numerous production AI applications. B.Tech CS &amp; Engineering; MBA, IIM Ahmedabad. Core architect of FRIDAYi. Experience at TCS, eBay, Wipro and Azim Premji Foundation.</p>
+            </div>
+            <div class="instructor-card">
+                <div class="instructor-role">DevOps Instructor</div>
+                <div class="instructor-name">Stallon Selvan</div>
+                <p>15+ years software engineering &amp; cloud architecture. Cost optimization and reliability expert. Technical team leadership at scale.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Alumni Voices</p>
+        <h2 class="section-title">What Past Participants Say</h2>
+        <p class="section-subtitle">Reflections from professionals who trained with NLightN.</p>
+
+        <div class="testimonials-grid">
+            <article class="testimonial-card">
+                <img class="testimonial-photo" src="/assets/vishal.jpg" width="96" height="96" alt="Vishal">
+                <div class="testimonial-body">
+                    <p class="testimonial-quote">NLightN's AI reskilling track gave me hands-on exposure to production-grade AI engineering: fine-tuned LLM workflows, RAG pipelines, vector retrieval, and inference-first deployment practices. Working on real delivery use cases accelerated my transition from conventional development to modern AI product engineering, and it gave me a strong edge as a Software Engineer in a rapidly shifting market.</p>
+                    <p class="testimonial-name">Vishal</p>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <img class="testimonial-photo" src="/assets/jawed.jpg" width="96" height="96" alt="Jawed">
+                <div class="testimonial-body">
+                    <p class="testimonial-quote">At NLightN, I moved beyond fundamentals into real-world AI automation and modern product workflows. I built practical pipelines for automating blog writing with Ghost CMS, integrated AI-assisted content generation into delivery flows, and learned how to design scalable systems using LLM orchestration, API-first architecture, and cloud-ready engineering practices. The mentorship and execution culture made the learning curve fast and genuinely career-changing.</p>
+                    <p class="testimonial-name">Jawed</p>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <p class="section-label">Certification</p>
+        <h2 class="section-title">What You Earn</h2>
+        <div class="training-grid">
+            <div class="training-card">
+                <div class="training-card-label">Digital Certificate</div>
+                <div class="training-card-value">Issued upon successful completion</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Professional Badge</div>
+                <div class="training-card-value">"AI Engineering Practitioner" Badge</div>
+            </div>
+            <div class="training-card">
+                <div class="training-card-label">Detailed Transcript</div>
+                <div class="training-card-value">Module-wise grades and project portfolio</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="register" class="lead-form-section">
+    <div class="container">
+        <div class="lead-form-wrap">
+            <p class="section-label">Ready to Transform Your Career?</p>
+            <h2 class="section-title">Register Your Interest</h2>
+            <p class="section-subtitle">Share your details and we'll reach out with upcoming batch dates, pricing, and next steps.</p>
+
+            <form id="training-lead-form" class="lead-form" novalidate>
+                <div class="form-field">
+                    <label for="lead-name">Full Name</label>
+                    <input type="text" id="lead-name" name="name" placeholder="Jane Doe" required>
+                </div>
+                <div class="form-field">
+                    <label for="lead-email">Email Address</label>
+                    <input type="email" id="lead-email" name="email" placeholder="jane@example.com" required>
+                </div>
+                <div class="form-field">
+                    <label for="lead-phone">Mobile Number</label>
+                    <input type="tel" id="lead-phone" name="phone" placeholder="+91 98765 43210" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div id="form-msg" class="form-msg"></div>
+        </div>
+    </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="/components.js"></script>
+<script>
+(function () {
+    var form = document.getElementById('training-lead-form');
+    var msgEl = document.getElementById('form-msg');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msgEl.className = 'form-msg';
+        msgEl.style.display = 'none';
+
+        var name = form.name.value.trim();
+        var email = form.email.value.trim();
+        var phone = form.phone.value.trim();
+
+        if (!name || !email || !phone) {
+            showMsg('Please fill in all fields.', 'error');
+            return;
+        }
+
+        var btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Submitting…';
+        btn.disabled = true;
+
+        fetch('https://api.fridayi.com/api/v2/popupbot/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                bot_id: 'fec62ce883b44095a259c09303a95ecc',
+                name: name,
+                email: email,
+                phone: phone
+            })
+        })
+        .then(function (res) {
+            if (!res.ok) throw new Error('Request failed');
+            return res.json();
+        })
+        .then(function () {
+            form.style.display = 'none';
+            showMsg('Thanks, ' + name.split(' ')[0] + '! We\u2019ll be in touch soon.', 'success');
+        })
+        .catch(function () {
+            showMsg('Something went wrong. Please try again or email us directly.', 'error');
+            btn.textContent = 'Submit';
+            btn.disabled = false;
+        });
+    });
+
+    function showMsg(text, type) {
+        msgEl.textContent = text;
+        msgEl.className = 'form-msg ' + type;
+        msgEl.style.display = 'block';
+    }
+})();
+</script>
+</body>
+</html>

@@ -18,6 +18,7 @@
         { label: 'Services', href: '/services/' },
         { label: 'Work', href: '/work/' },
         { label: 'Training', href: '/training/' },
+        { label: 'Decks & Docs', href: '/decks-and-documents/' },
         { label: 'Reach Out', href: '/reach-out/' }
     ];
 
